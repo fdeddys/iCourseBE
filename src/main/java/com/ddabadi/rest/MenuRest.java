@@ -19,9 +19,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "api/menu")
 @Api(value = "menu", tags = {"Menu [needed by system] "} )
-public class MenuRestController {
+public class MenuRest {
 
-    private static Logger log = LoggerFactory.getLogger(MenuRestController.class);
+    private static Logger log = LoggerFactory.getLogger(MenuRest.class);
 
     @Autowired
     private MenuServiceImpl menuService;

@@ -2,6 +2,8 @@ package com.ddabadi.service.impl;
 
 
 import com.ddabadi.model.User;
+import com.ddabadi.model.UserRole;
+import com.ddabadi.model.compositekey.UserRoleId;
 import com.ddabadi.model.dto.UserDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.UserRepository;
@@ -35,8 +37,8 @@ public class UserServiceImpl implements  UserService {
     @Autowired
     private UserRepository repository;
 
-//    @Autowired
-//    private RoleUserServiceImpl roleUserService;
+    @Autowired
+    private UserRoleServiceImpl userRoleService;
 
     private static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -156,57 +158,57 @@ public class UserServiceImpl implements  UserService {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
-//    @Transactional(propagation = Propagation.REQUIRED)
-//    public UserDto addRole( Long userId, Long roleId) {
-//        UserDto userDto = new UserDto();
-//        // cek apakah user dan role ini sudah ada?
-//        UserRole userRoleCheck = roleUserService.findByRoleIdAndUserId(roleId, userId);
-//        log.debug("Checkk {} ", userRoleCheck.getStatus());
-//        if   (userRoleCheck.getStatus() == null){
-//
-//            User username = this.getCurUserAsObj();
-//
-//            // user role tidak ada
-//            UserRoleId userRoleId = new UserRoleId();
-//            userRoleId.setRoleId(roleId);
-//            userRoleId.setUserId(userId);
-//
-//            UserRole userRole = new UserRole();
-//            userRole.setUserRoleId(userRoleId);
-//            userRole.setStatus(EntityStatus.ACTIVE);
-//            userRole.setCreatedAt(new Date());
-//            userRole.setUpdatedAt(new Date());
-//            userRole.setCreatedBy(username);
-//            userRole.setUpdatedBy(username);
-//            roleUserService.addnew(userRole);
-//        } else{
-//            userDto.setErrMsg("Role has been registred");
-//            return userDto;
-//        }
-//        return userDto;
-//    }
+    @Transactional(propagation = Propagation.REQUIRED)
+    public UserDto addRole( Long userId, Long roleId) {
+        UserDto userDto = new UserDto();
+        // cek apakah user dan role ini sudah ada?
+        UserRole userRoleCheck = userRoleService.findByRoleIdAndUserId(roleId, userId);
+        log.debug("Checkk {} ", userRoleCheck.getStatus());
+        if   (userRoleCheck.getStatus() == null){
 
-//    public UserDto changeStatusRole(UserDto userDto) {
-//
-//        Optional<User> userOpt = repository.findById(userDto.getUserId());
-//        if (userOpt.isPresent()) {
-//            userDto.setErrMsg("user not found ");
-//        }
-//
-//        UserRole userRoleCheck = roleUserService.findByRoleIdAndUserId(userDto.getRoleId(), userDto.getUserId());
-//        if   (userRoleCheck.getUserRoleId().getRoleId() == 0 ){
-//            // user role tidak ada
-//            userDto.setErrMsg("Role for this user not found ");
-//            return userDto;
-//        } else{
-//            User username = this.getCurUserAsObj();
-//            userRoleCheck.setUpdatedAt(new Date());
-//            userRoleCheck.setUpdatedBy(username);
-//            userRoleCheck.setStatus( userRoleCheck.getStatus().equals(EntityStatus.ACTIVE) ? EntityStatus.INACTIVE : EntityStatus.ACTIVE );
-//            roleUserService.addnew(userRoleCheck);
-//            return userDto;
-//        }
-//    }
+            User username = this.getCurUserAsObj();
+
+            // user role tidak ada
+            UserRoleId userRoleId = new UserRoleId();
+            userRoleId.setRoleId(roleId);
+            userRoleId.setUserId(userId);
+
+            UserRole userRole = new UserRole();
+            userRole.setUserRoleId(userRoleId);
+            userRole.setStatus(EntityStatus.ACTIVE);
+            userRole.setCreatedAt(new Date());
+            userRole.setUpdatedAt(new Date());
+            userRole.setCreatedBy(username);
+            userRole.setUpdatedBy(username);
+            userRoleService.addnew(userRole);
+        } else{
+            userDto.setErrMsg("Role has been registred");
+            return userDto;
+        }
+        return userDto;
+    }
+
+    public UserDto changeStatusRole(UserDto userDto) {
+
+        Optional<User> userOpt = repository.findById(userDto.getUserId());
+        if (userOpt.isPresent()) {
+            userDto.setErrMsg("user not found ");
+        }
+
+        UserRole userRoleCheck = userRoleService.findByRoleIdAndUserId(userDto.getRoleId(), userDto.getUserId());
+        if   (userRoleCheck.getUserRoleId().getRoleId() == 0 ){
+            // user role tidak ada
+            userDto.setErrMsg("Role for this user not found ");
+            return userDto;
+        } else{
+            User username = this.getCurUserAsObj();
+            userRoleCheck.setUpdatedAt(new Date());
+            userRoleCheck.setUpdatedBy(username);
+            userRoleCheck.setStatus( userRoleCheck.getStatus().equals(EntityStatus.ACTIVE) ? EntityStatus.INACTIVE : EntityStatus.ACTIVE );
+            userRoleService.addnew(userRoleCheck);
+            return userDto;
+        }
+    }
 
 
     public String getCurrentUser(){
@@ -318,19 +320,19 @@ public class UserServiceImpl implements  UserService {
         return repository.save(user);
     }
 
-//    public User removeRole(Long userId, Long roleId) {
-//        UserDto userDto = new UserDto();
-//        Optional<User> userOpt = repository.findById(userId);
-//        if (userOpt.isPresent()) userDto.setErrMsg("user not found ");
-//
-//        UserRole userRoleCheck = roleUserService.findByRoleIdAndUserId(roleId, userId);
-//        if   (userRoleCheck.getUserRoleId().getRoleId() == 0 ){
-//            userDto.setErrMsg("Role for this user not found ");
-//            return userDto;
-//        } else{
-//            roleUserService.delete(userRoleCheck);
-//            return new UserDto();
-//        }
-//    }
+    public User removeRole(Long userId, Long roleId) {
+        UserDto userDto = new UserDto();
+        Optional<User> userOpt = repository.findById(userId);
+        if (userOpt.isPresent()) userDto.setErrMsg("user not found ");
+
+        UserRole userRoleCheck = userRoleService.findByRoleIdAndUserId(roleId, userId);
+        if   (userRoleCheck.getUserRoleId().getRoleId() == 0 ){
+            userDto.setErrMsg("Role for this user not found ");
+            return userDto;
+        } else{
+            userRoleService.delete(userRoleCheck);
+            return new UserDto();
+        }
+    }
 
 }
