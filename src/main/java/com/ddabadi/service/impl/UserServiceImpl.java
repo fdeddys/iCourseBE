@@ -5,6 +5,10 @@ import com.ddabadi.model.User;
 import com.ddabadi.model.dto.UserDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.UserRepository;
+import com.ddabadi.service.UserService;
+import com.ddabadi.util.GenerateNumber;
+import com.ddabadi.util.PasswordEncode;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,9 +30,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Service
-public class UserServiceImpl  {
-//    implements UserDetailsService, UserService {
-
+public class UserServiceImpl implements  UserService {
+//UserDetailsService,
     @Autowired
     private UserRepository repository;
 
@@ -48,77 +57,77 @@ public class UserServiceImpl  {
         return repository.findAll(pageRequest) ;
     }
 
-//    public UserDto addnew(UserDto userDto) {
-//        try {
-//
-//            String password = new GenerateNumber().randomize();
-//            PasswordEncode passwordEncode = PasswordEncode.getInstance();
-//
-//            Optional<User> userCek = repository.findByName(userDto.getName());
-//            if (userCek.isPresent()) {
-//                userDto.setErrMsg("user name already exsist ! ");
-//                return userDto;
-//            }
-//
-//            String username = this.getCurrentUser();
-//            log.debug("New Record ");
-//            User newRec = new User();
-//            newRec.setName(userDto.getName());
-//            newRec.setFirstName(userDto.getFirstName());
-//            newRec.setLastName(userDto.getLastName());
-//            newRec.setEmail(userDto.getEmail());
-//            newRec.setPassword(passwordEncode.encodeWithHash(password));
-//            newRec.setStatus(userDto.getStatus());
-//            newRec.setRememberToken("");
-//            newRec.setUpdatedBy(username);
-//            newRec.setCreatedBy(username);
-//            newRec = repository.save(newRec);
-//
-//            byte[] asOldBytes = Base64.getEncoder().encode(password.getBytes());
-//            String curPassInString = new String(asOldBytes, "utf-8");
-//            userDto.setPassword(curPassInString);
-//            userDto.setId(newRec.getId());
-//            userDto.setErrMsg(null);
-//        } catch (Exception e) {
-//            log.debug("Error {}", e.getMessage());
-//            userDto.setErrMsg(e.getMessage());
-//        }
-//
-//        return userDto;
-//    }
+    public UserDto addnew(UserDto userDto) {
+        try {
+
+            String password = new GenerateNumber().randomize();
+            PasswordEncode passwordEncode = PasswordEncode.getInstance();
+
+            Optional<User> userCek = repository.findByName(userDto.getName());
+            if (userCek.isPresent()) {
+                userDto.setErrMsg("user name already exsist ! ");
+                return userDto;
+            }
+
+            String username = this.getCurrentUser();
+            log.debug("New Record ");
+            User newRec = new User();
+            newRec.setName(userDto.getName());
+            newRec.setFirstName(userDto.getFirstName());
+            newRec.setLastName(userDto.getLastName());
+            newRec.setEmail(userDto.getEmail());
+            newRec.setPassword(passwordEncode.encodeWithHash(password));
+            newRec.setStatus(userDto.getStatus());
+            newRec.setRememberToken("");
+            newRec.setUpdatedBy(username);
+            newRec.setCreatedBy(username);
+            newRec = repository.save(newRec);
+
+            byte[] asOldBytes = Base64.getEncoder().encode(password.getBytes());
+            String curPassInString = new String(asOldBytes, "utf-8");
+            userDto.setPassword(curPassInString);
+            userDto.setId(newRec.getId());
+            userDto.setErrMsg(null);
+        } catch (Exception e) {
+            log.debug("Error {}", e.getMessage());
+            userDto.setErrMsg(e.getMessage());
+        }
+
+        return userDto;
+    }
 
 
-//    @Transactional(propagation = Propagation.REQUIRED)
-//    public UserDto update(UserDto userDto, Long idOld) {
-//
-//        UserDto result = new UserDto();
-//        try {
-//            Optional<User> optionalUser = repository.findById(idOld);
-//            if (optionalUser.isPresent()){
-//
-//                String username = this.getCurrentUser();
-//                User oldMember = optionalUser.get();
-//                oldMember.setFirstName(userDto.getFirstName());
-//                oldMember.setLastName(userDto.getLastName());
-//                oldMember.setEmail(userDto.getEmail());
-//                oldMember.setStatus(userDto.getStatus());
-//                oldMember.setRememberToken(userDto.getRememberToken());
-//                oldMember.setUpdatedAt(new Date());
-//                oldMember.setUpdatedBy(username);
-//                oldMember = repository.save(oldMember);
-//
-//                result.setId(oldMember.getId());
-//                result.setEmail(oldMember.getEmail());
-//                result.setStatus(oldMember.getStatus());
-//                result.setName(oldMember.getName());
-//            }else {
-//                result.setErrMsg("User not found");
-//            }
-//        } catch (Exception ex) {
-//            result.setErrMsg("Error " + ex.getMessage());
-//        }
-//        return result;
-//    }
+    @Transactional(propagation = Propagation.REQUIRED)
+    public UserDto update(UserDto userDto, Long idOld) {
+
+        UserDto result = new UserDto();
+        try {
+            Optional<User> optionalUser = repository.findById(idOld);
+            if (optionalUser.isPresent()){
+
+                String username = this.getCurrentUser();
+                User oldMember = optionalUser.get();
+                oldMember.setFirstName(userDto.getFirstName());
+                oldMember.setLastName(userDto.getLastName());
+                oldMember.setEmail(userDto.getEmail());
+                oldMember.setStatus(userDto.getStatus());
+                oldMember.setRememberToken(userDto.getRememberToken());
+                oldMember.setUpdatedAt(new Date());
+                oldMember.setUpdatedBy(username);
+                oldMember = repository.save(oldMember);
+
+                result.setId(oldMember.getId());
+                result.setEmail(oldMember.getEmail());
+                result.setStatus(oldMember.getStatus());
+                result.setName(oldMember.getName());
+            }else {
+                result.setErrMsg("User not found");
+            }
+        } catch (Exception ex) {
+            result.setErrMsg("Error " + ex.getMessage());
+        }
+        return result;
+    }
 
 
 //    @Override
@@ -132,20 +141,20 @@ public class UserServiceImpl  {
 //        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), getAuthority());
 //    }
 
-//    @Override
-//    public User findOneByName(String name) {
-//        Optional<User> optionalUser = repository.findByName(name);
-//        return optionalUser.orElseGet(User::new) ;
-//    }
+    @Override
+    public User findOneByName(String name) {
+        Optional<User> optionalUser = repository.findByName(name);
+        return optionalUser.orElseGet(User::new) ;
+    }
 
     public User findOneByNameActive(String name) {
         Optional<User> optionalUser = repository.findByNameAndStatus(name, EntityStatus.ACTIVE);
         return optionalUser.orElseGet(User::new);
     }
 
-//    private List<SimpleGrantedAuthority> getAuthority() {
-//        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-//    }
+    private List<SimpleGrantedAuthority> getAuthority() {
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+    }
 
 //    @Transactional(propagation = Propagation.REQUIRED)
 //    public UserDto addRole( Long userId, Long roleId) {
@@ -176,7 +185,7 @@ public class UserServiceImpl  {
 //        }
 //        return userDto;
 //    }
-//
+
 //    public UserDto changeStatusRole(UserDto userDto) {
 //
 //        Optional<User> userOpt = repository.findById(userDto.getUserId());
@@ -198,90 +207,90 @@ public class UserServiceImpl  {
 //            return userDto;
 //        }
 //    }
-//
-//
-//    public String getCurrentUser(){
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        return auth.getName();
-//    }
-//
-//    public User getCurUserAsObj(){
-//
-//        String username = this.getCurrentUser();
-//        return this.findOneByName(username);
-//    }
 
-//    @Transactional(propagation = Propagation.REQUIRED)
-//    public UserDto changePassword(UserDto userDto) {
-//
-//        UserDto resultUser = new UserDto();
-//
-//        try {
-//            byte[] asOldBytes = Base64.getDecoder().decode(userDto.getOldPass());
-//            String curPassInString = new String(asOldBytes, "utf-8");
-//            log.debug("cur pass {} " , curPassInString);
-//
-//            byte[] asNewBytes = Base64.getDecoder().decode(userDto.getPassword());
-//            String newPassInString = new String(asNewBytes, "utf-8");
-//            log.debug("new pass {} ", newPassInString);
-//
-//            Optional<User> userOp = repository.findById(userDto.getId());
-//            if (userOp.isPresent() ) {
-//                User user = userOp.get();
-//                PasswordEncode passwordEncode = PasswordEncode.getInstance();
-//                boolean isvalid = passwordEncode.checkValid(curPassInString, user.getPassword());
-//                log.debug("user pass = {} check valid = {} ",  user.getPassword() , isvalid);
-//                if ( isvalid ) {
-//                    // user.getPassword().equals(currPass)
-//                    String newPass = passwordEncode.encode( newPassInString);
-//                    user.setPassword(newPass);
-//                    user.setUpdatedBy(user.getName());
-//                    user = repository.save(user);
-//                    resultUser.setName(user.getName());
-//                    resultUser.setId(user.getId());
-//                } else {
-//                    resultUser.setErrMsg("invalid old pass");
-//                }
-//            } else {
-//                resultUser.setErrMsg("user not found");
-//            }
-//
-//        } catch (UnsupportedEncodingException e) {
-//            resultUser.setErrMsg("failed encoded from request");
-//        }
-//
-//        return resultUser ;
-//    }
-//
-//    @Transactional(propagation = Propagation.REQUIRED)
-//    public UserDto resetPassword(Long userId) {
-//
-//        String randomPass = new GenerateNumber().randomize();
-//        UserDto resultUser = new UserDto();
-//        Optional<User> userOp = repository.findById(userId);
-//        if (userOp.isPresent() ) {
-//            User user = userOp.get();
-//            PasswordEncode passwordEncode = PasswordEncode.getInstance();
-//
-//            String newPass = passwordEncode.encodeWithHash( randomPass );
-//            user.setPassword(newPass);
-//            user.setUpdatedAt(new Date());
-//            user.setUpdatedBy(user.getName());
-//            repository.save(user);
-//            byte[] asOldBytes = Base64.getEncoder().encode(randomPass.getBytes());
-//            try {
-//                String curPassInString = new String(asOldBytes, "utf-8");
-//                resultUser.setOldPass(curPassInString);
-//                log.debug("Random pass == {} ", randomPass);
-//            } catch (UnsupportedEncodingException e) {
-//                log.debug("err {} ", e.getMessage());
-//                resultUser.setErrMsg(e.getMessage());
-//            }
-//        } else {
-//            resultUser.setErrMsg("user not found");
-//        }
-//        return resultUser ;
-//    }
+
+    public String getCurrentUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
+    }
+
+    public User getCurUserAsObj(){
+
+        String username = this.getCurrentUser();
+        return this.findOneByName(username);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public UserDto changePassword(UserDto userDto) {
+
+        UserDto resultUser = new UserDto();
+
+        try {
+            byte[] asOldBytes = Base64.getDecoder().decode(userDto.getOldPass());
+            String curPassInString = new String(asOldBytes, "utf-8");
+            log.debug("cur pass {} " , curPassInString);
+
+            byte[] asNewBytes = Base64.getDecoder().decode(userDto.getPassword());
+            String newPassInString = new String(asNewBytes, "utf-8");
+            log.debug("new pass {} ", newPassInString);
+
+            Optional<User> userOp = repository.findById(userDto.getId());
+            if (userOp.isPresent() ) {
+                User user = userOp.get();
+                PasswordEncode passwordEncode = PasswordEncode.getInstance();
+                boolean isvalid = passwordEncode.checkValid(curPassInString, user.getPassword());
+                log.debug("user pass = {} check valid = {} ",  user.getPassword() , isvalid);
+                if ( isvalid ) {
+                    // user.getPassword().equals(currPass)
+                    String newPass = passwordEncode.encode( newPassInString);
+                    user.setPassword(newPass);
+                    user.setUpdatedBy(user.getName());
+                    user = repository.save(user);
+                    resultUser.setName(user.getName());
+                    resultUser.setId(user.getId());
+                } else {
+                    resultUser.setErrMsg("invalid old pass");
+                }
+            } else {
+                resultUser.setErrMsg("user not found");
+            }
+
+        } catch (UnsupportedEncodingException e) {
+            resultUser.setErrMsg("failed encoded from request");
+        }
+
+        return resultUser ;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public UserDto resetPassword(Long userId) {
+
+        String randomPass = new GenerateNumber().randomize();
+        UserDto resultUser = new UserDto();
+        Optional<User> userOp = repository.findById(userId);
+        if (userOp.isPresent() ) {
+            User user = userOp.get();
+            PasswordEncode passwordEncode = PasswordEncode.getInstance();
+
+            String newPass = passwordEncode.encodeWithHash( randomPass );
+            user.setPassword(newPass);
+            user.setUpdatedAt(new Date());
+            user.setUpdatedBy(user.getName());
+            repository.save(user);
+            byte[] asOldBytes = Base64.getEncoder().encode(randomPass.getBytes());
+            try {
+                String curPassInString = new String(asOldBytes, "utf-8");
+                resultUser.setOldPass(curPassInString);
+                log.debug("Random pass == {} ", randomPass);
+            } catch (UnsupportedEncodingException e) {
+                log.debug("err {} ", e.getMessage());
+                resultUser.setErrMsg(e.getMessage());
+            }
+        } else {
+            resultUser.setErrMsg("user not found");
+        }
+        return resultUser ;
+    }
 
     @Transactional(readOnly = true)
     public List<User> findAll(){
