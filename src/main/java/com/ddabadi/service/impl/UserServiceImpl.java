@@ -305,6 +305,10 @@ public class UserServiceImpl  {
 
     }
 
+    public User save(User user) {
+        return repository.save(user);
+    }
+
 //    public User removeRole(Long userId, Long roleId) {
 //        UserDto userDto = new UserDto();
 //        Optional<User> userOpt = repository.findById(userId);
