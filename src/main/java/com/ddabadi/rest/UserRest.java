@@ -1,4 +1,4 @@
-package com.example.rest;
+package com.ddabadi.rest;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
