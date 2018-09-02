@@ -4,6 +4,7 @@ package com.ddabadi.rest;
 import com.ddabadi.model.User;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.service.impl.UserServiceImpl;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "api")
+@Api(value = "usr", tags = "CRUD for User")
 public class UserRest {
 
     @Autowired private UserServiceImpl userService;
