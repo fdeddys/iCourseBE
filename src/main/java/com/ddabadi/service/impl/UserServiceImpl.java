@@ -32,8 +32,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Service
-public class UserServiceImpl implements  UserService {
-//UserDetailsService,
+public class UserServiceImpl implements  UserService, UserDetailsService{
+
     @Autowired
     private UserRepository repository;
 
@@ -132,16 +132,16 @@ public class UserServiceImpl implements  UserService {
     }
 
 
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        Optional<User> optionalUser = repository.findByName(username);
-//        if (!(optionalUser.isPresent())) {
-//            throw new UsernameNotFoundException("Invalid username or password.");
-//        }
-//
-//        User user = optionalUser.get();
-//        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), getAuthority());
-//    }
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> optionalUser = repository.findByName(username);
+        if (!(optionalUser.isPresent())) {
+            throw new UsernameNotFoundException("Invalid username or password.");
+        }
+
+        User user = optionalUser.get();
+        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), getAuthority());
+    }
 
     @Override
     public User findOneByName(String name) {
