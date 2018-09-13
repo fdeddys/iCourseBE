@@ -16,6 +16,7 @@
 
 package com.ddabadi;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,8 @@ public class Main {
   String index() {
     return "index";
   }
+
+
 
 //  @RequestMapping("/db")
 //  String db(Map<String, Object> model) {
