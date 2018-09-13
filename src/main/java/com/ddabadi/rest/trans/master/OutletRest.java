@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping(value = "api")
+@RequestMapping(value = "api/outlet")
 public class OutletRest {
 
     @Autowired private OutletService outletService;
@@ -25,7 +25,7 @@ public class OutletRest {
     }
 
     @PostMapping
-    public OutletDto getAll(@RequestBody OutletDto outletDto){
+    public OutletDto save(@RequestBody OutletDto outletDto){
 
         logger.info("save " + outletDto.toString());
         return outletService.addnew(outletDto);
