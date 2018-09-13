@@ -20,7 +20,7 @@ public class Outlet extends Audit implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(columnDefinition = "CHAR(32)")
+    @Column(columnDefinition = "CHAR(100)")
     private String id;
 
     @ManyToOne(cascade = CascadeType.ALL)
