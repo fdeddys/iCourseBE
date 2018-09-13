@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RoleMenuServiceImpl implements CustomService<RoleMenu, Page<RoleMenu>> {
+public class RoleMenuServiceImpl implements CustomService<RoleMenu> {
 
     @Autowired
     private RoleMenuRepository repository;
@@ -60,6 +60,11 @@ public class RoleMenuServiceImpl implements CustomService<RoleMenu, Page<RoleMen
 
     @Override
     public RoleMenu update(RoleMenu roleMenu, Long idOld) {
+        return null;
+    }
+
+    @Override
+    public RoleMenu update(RoleMenu roleMenu) {
         return null;
     }
 

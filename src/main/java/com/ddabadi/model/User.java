@@ -67,4 +67,8 @@ public class User implements Serializable {
         this.setUpdatedAt(new Date());
     }
 
+    @ManyToOne
+    @JoinColumn(name = "outlet_id")
+    private Outlet outlet;
+
 }

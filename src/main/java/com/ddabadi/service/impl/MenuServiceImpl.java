@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class MenuServiceImpl implements CustomService<Menu, Page<Menu>> {
+public class MenuServiceImpl implements CustomService<Menu> {
 
     @Autowired
     private MenuRepository repository;
@@ -70,6 +70,11 @@ public class MenuServiceImpl implements CustomService<Menu, Page<Menu>> {
         }else {
             return null;
         }
+    }
+
+    @Override
+    public Menu update(Menu menu) {
+        return null;
     }
 
     @Transactional(readOnly = true)

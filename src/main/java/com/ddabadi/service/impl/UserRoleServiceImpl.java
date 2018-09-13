@@ -26,7 +26,7 @@ import java.util.Optional;
 
 @Transactional
 @Service
-public class UserRoleServiceImpl implements CustomService<UserRole, Page<UserRole>> {
+public class UserRoleServiceImpl implements CustomService<UserRole> {
 
     @Autowired
     private UserRoleRepository repository;
@@ -73,6 +73,11 @@ public class UserRoleServiceImpl implements CustomService<UserRole, Page<UserRol
 
     @Override
     public UserRole update(UserRole userRole, Long idOld) {
+        return null;
+    }
+
+    @Override
+    public UserRole update(UserRole userRole) {
         return null;
     }
 
