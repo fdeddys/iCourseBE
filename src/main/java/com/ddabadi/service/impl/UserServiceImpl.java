@@ -4,6 +4,7 @@ package com.ddabadi.service.impl;
 import com.ddabadi.model.User;
 import com.ddabadi.model.UserRole;
 import com.ddabadi.model.compositekey.UserRoleId;
+import com.ddabadi.model.dto.FilterDto;
 import com.ddabadi.model.dto.UserDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.UserRepository;
@@ -300,7 +301,7 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
     }
 
     @Transactional(readOnly = true)
-    public Page<User> searchByFilter(UserDto filterDto, int page, int total) {
+    public Page<User> searchByFilter(FilterDto filterDto, int page, int total) {
 
         Sort sort = new Sort(Sort.Direction.ASC,"name").and(new Sort(Sort.Direction.ASC,"firstName"));
         PageRequest pageRequest = PageRequest.of (page -1, total, sort);

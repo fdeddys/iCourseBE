@@ -1,7 +1,7 @@
 package com.ddabadi.repository;
 
 import com.ddabadi.model.User;
-import com.ddabadi.model.dto.UserDto;
+import com.ddabadi.model.dto.FilterDto;
 import com.ddabadi.model.enu.EntityStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
             " and lower(u.firstName) like lower(:#{#filter.firstName}) " +
             " and lower(u.lastName)  like lower(:#{#filter.lastName}) " +
             " and ((u.status= :#{#filter.status}) or (null = :#{#filter.status}))  ")
-    Page<User> findByFilter(@Param("filter") UserDto filter,
+    Page<User> findByFilter(@Param("filter") FilterDto filter,
                             Pageable pageable);
 
 }

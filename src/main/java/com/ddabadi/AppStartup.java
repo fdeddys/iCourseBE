@@ -33,6 +33,9 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 
+        User checkUser = userService.findOneByName("deddy");
+        if (checkUser != null) return;
+
         User userAdmin = new User();
         userAdmin.setFirstName("deddy");
         userAdmin.setLastName("syuhendra");
@@ -90,7 +93,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuGrOutlet = new Menu();
         menuGrOutlet.setName("group-outlet");
         menuGrOutlet.setDescription("Group Outlet");
-        menuGrOutlet.setLink("1");
+        menuGrOutlet.setLink("group-outlet");
         menuGrOutlet.setParentId(menuMaster.getId());
         menuGrOutlet.setIcon("person");
         menuGrOutlet.setStatus(1);
@@ -113,7 +116,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuOutlet = new Menu();
         menuOutlet.setName("outlet");
         menuOutlet.setDescription("Outlet");
-        menuOutlet.setLink("1");
+        menuOutlet.setLink("Outlet");
         menuOutlet.setParentId(menuMaster.getId());
         menuOutlet.setIcon("person");
         menuOutlet.setStatus(1);
@@ -137,7 +140,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuRoom = new Menu();
         menuRoom.setName("room");
         menuRoom.setDescription("Room");
-        menuRoom.setLink("1");
+        menuRoom.setLink("room");
         menuRoom.setParentId(menuMaster.getId());
         menuRoom.setIcon("person");
         menuRoom.setStatus(1);
@@ -161,7 +164,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuClass = new Menu();
         menuClass.setName("classcourse");
         menuClass.setDescription("Class");
-        menuClass.setLink("1");
+        menuClass.setLink("classcourse");
         menuClass.setParentId(menuMaster.getId());
         menuClass.setIcon("person");
         menuClass.setStatus(1);
@@ -185,7 +188,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuStudent = new Menu();
         menuStudent.setName("student");
         menuStudent.setDescription("Student");
-        menuStudent.setLink("1");
+        menuStudent.setLink("student");
         menuStudent.setParentId(menuMaster.getId());
         menuStudent.setIcon("person");
         menuStudent.setStatus(1);
@@ -209,7 +212,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuTeacher = new Menu();
         menuTeacher.setName("teacher");
         menuTeacher.setDescription("Teacher");
-        menuTeacher.setLink("1");
+        menuTeacher.setLink("teacher");
         menuTeacher.setParentId(menuMaster.getId());
         menuTeacher.setIcon("person");
         menuTeacher.setStatus(1);
@@ -256,7 +259,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuReg = new Menu();
         menuReg.setName("registration");
         menuReg.setDescription("Registration");
-        menuReg.setLink("1");
+        menuReg.setLink("registration");
         menuReg.setParentId(menuTrx.getId());
         menuReg.setIcon("person");
         menuReg.setStatus(1);
@@ -280,7 +283,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuPayment = new Menu();
         menuPayment.setName("payment");
         menuPayment.setDescription("Payment");
-        menuPayment.setLink("1");
+        menuPayment.setLink("payment");
         menuPayment.setParentId(menuTrx.getId());
         menuPayment.setIcon("person");
         menuPayment.setStatus(1);
@@ -327,7 +330,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuUser = new Menu();
         menuUser.setName("user");
         menuUser.setDescription("User");
-        menuUser.setLink("1");
+        menuUser.setLink("user");
         menuUser.setParentId(menuUtility.getId());
         menuUser.setIcon("person");
         menuUser.setStatus(1);
@@ -351,7 +354,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuRole = new Menu();
         menuRole.setName("role");
         menuRole.setDescription("Role");
-        menuRole.setLink("1");
+        menuRole.setLink("role");
         menuRole.setParentId(menuUtility.getId());
         menuRole.setIcon("person");
         menuRole.setStatus(1);
@@ -375,7 +378,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuAccMtx = new Menu();
         menuAccMtx.setName("access-matrix");
         menuAccMtx.setDescription("Access Matrix");
-        menuAccMtx.setLink("1");
+        menuAccMtx.setLink("access-matrix");
         menuAccMtx.setParentId(menuUtility.getId());
         menuAccMtx.setIcon("person");
         menuAccMtx.setStatus(1);
