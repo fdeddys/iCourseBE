@@ -4,6 +4,7 @@ package com.ddabadi.model;
 import com.ddabadi.model.enu.EntityStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode
 @ToString
+
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,7 +70,7 @@ public class User implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "outlet_id")
+    @JoinColumn(name = "outlet_id", columnDefinition = "CHAR(50)")
     private Outlet outlet;
 
 }

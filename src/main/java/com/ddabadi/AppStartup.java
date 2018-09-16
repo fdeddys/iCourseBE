@@ -6,6 +6,7 @@ import com.ddabadi.model.compositekey.UserRoleId;
 import com.ddabadi.model.dto.UserRoleDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.RoleRepository;
+import com.ddabadi.repository.UserRepository;
 import com.ddabadi.service.impl.MenuServiceImpl;
 import com.ddabadi.service.impl.RoleMenuServiceImpl;
 import com.ddabadi.service.impl.UserRoleServiceImpl;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
@@ -29,12 +31,18 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired private MenuServiceImpl menuService;
     @Autowired private RoleMenuServiceImpl roleMenuService;
     @Autowired private UserRoleServiceImpl userRoleService;
+    @Autowired private UserRepository userRepository;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 
-        User checkUser = userService.findOneByName("deddy");
-        if (checkUser != null) return;
+        Optional<User> optionalUser = userRepository.findByName("deddy");
+
+//        User checkUser = userService.findOneByName("deddy");
+//        logger.info("----------------------------------------> " +checkUser);
+        if (optionalUser.isPresent() ){
+            return;
+        }
 
         User userAdmin = new User();
         userAdmin.setFirstName("deddy");
