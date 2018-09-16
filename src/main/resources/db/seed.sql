@@ -13,6 +13,14 @@ insert into m_roles(id, created_at, updated_at, description, name, created_by, u
 values
 (1, '2018-09-11','2018-09-11','admin','admin',2,2);
 
+
+
+
+
+
+
+
+
 INSERT INTO public.m_menus(
 	id, name, description, created_at, updated_at, created_by, updated_by, parent_id, icon, status)
 	VALUES (1, 'transaksi', 'Transaksi', '2018-09-11', '2018-09-11', 2, 2, 0, 'settings', 1);
@@ -29,6 +37,8 @@ INSERT INTO public.m_role_menu(
 INSERT INTO public.m_menus(
 	id, name, description, created_at, updated_at, created_by, updated_by, link, parent_id, icon, status)
 	VALUES (4, 'group-outlet', 'Group Outlet', '2018-09-11', '2018-09-11', 2, 2, 'group-outlet',  1, 'person', 1);
+
+
 
 INSERT INTO public.m_role_menu(
 	role_id, menu_id, status, created_at, updated_at, created_by, updated_by)
@@ -89,9 +99,7 @@ INSERT INTO public.m_role_menu(
 	VALUES (1,11, 1, '2018-09-11', '2018-09-11', 2, 2);
 
 
-INSERT INTO public.m_menus(
-	id, name, description, created_at, updated_at, created_by, updated_by, link, parent_id, icon, status)
-	VALUES (12, 'report', 'Report', '2018-09-11', '2018-09-11', 2, 2, null,  0, 'person', 1);
+
 
 INSERT INTO public.m_role_menu(
 	role_id, menu_id, status, created_at, updated_at, created_by, updated_by)

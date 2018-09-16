@@ -23,17 +23,4 @@ public class UserRest {
         return userService.findOne(id).toString();
     }
 
-//    @RequestMapping(value = "user/add")
-    private User addUser(){
-
-        User user = new User();
-        user.setFirstName("deddy");
-        user.setLastName("syuhendra");
-        user.setRememberToken("");
-        user.setEmail("ddd.dd@co");
-        user.setPassword("$2a$10$JO27HeXnPJrkPGBMVU40a.2x1ShX1YLKzSvKYxlRtvhHahtxfJIiu");
-        user.setStatus(EntityStatus.ACTIVE);
-        user.setName("deddy");
-        return userService.save(user);
-    }
 }

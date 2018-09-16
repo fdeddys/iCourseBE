@@ -16,6 +16,7 @@
 
 package com.ddabadi;
 
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,6 +35,7 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+    BasicConfigurator.configure();
   }
 
   @RequestMapping("/")

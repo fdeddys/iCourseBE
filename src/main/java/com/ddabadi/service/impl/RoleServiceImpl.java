@@ -77,7 +77,6 @@ public class RoleServiceImpl implements CustomService<Role> {
                 return roleDto;
             }
 
-
             User user = userService.getCurUserAsObj();
             List<RoleMenu> roleMenus = new ArrayList<>();
             log.debug("New Record ");
@@ -86,8 +85,9 @@ public class RoleServiceImpl implements CustomService<Role> {
             newRec.setDescription(roleDto.getDescription());
             newRec.setUpdatedBy(user);
             newRec.setCreatedBy(user);
-            repository.save(newRec);
+            newRec = repository.save(newRec);
             roleMenuService.save(roleMenus);
+            roleDto.setId(newRec.getId());
         } catch (Exception e) {
             log.debug("{}", e.getMessage()) ;
             roleDto.setErrMsg(e.getMessage());

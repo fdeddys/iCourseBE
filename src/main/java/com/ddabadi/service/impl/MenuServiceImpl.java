@@ -54,7 +54,9 @@ public class MenuServiceImpl implements CustomService<Menu> {
     }
 
     @Override
-    public Menu addnew(Menu menu) { return null; }
+    public Menu addnew(Menu menu) {
+        return repository.save(menu);
+    }
 
     @Override
     public Menu update(Menu menu, Long idOld) {

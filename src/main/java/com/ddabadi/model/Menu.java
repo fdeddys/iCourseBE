@@ -20,8 +20,9 @@ public class Menu extends Audit implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @SequenceGenerator(name = "pk_menu_seq", sequenceName = "menus_id_seq", allocationSize=1)
     @GeneratedValue( strategy = GenerationType.SEQUENCE, generator="pk_menu_seq")
+    @SequenceGenerator(name = "pk_menu_seq", sequenceName = "menus_id_seq", allocationSize=1)
+    @Column(nullable = false)
     private Long id;
 
     @Column(length = 30, nullable = false)
