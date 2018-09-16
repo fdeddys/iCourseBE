@@ -16,3 +16,7 @@
 2018-09-16 13:39:06 INFO  AppStartup:39 - ----------------------------------------> User(id=null, name=null, email=null, password=null, status=ACTIVE, rememberToken=null, firstName=null, lastName=null, updatedBy=null, createdBy=null, createdAt=Sun Sep 16 13:39:06 ICT 2018, updatedAt=Sun Sep 16 13:39:06 ICT 2018, outlet=null)
 2018-09-16 13:39:07 INFO  AppStartup:57 - user id = 1
 2018-09-16 13:39:10 INFO  AppStartup:86 - Menu master id = 1
+2018-09-16 14:08:39 INFO  AppStartup:56 - user id = 1
+2018-09-16 14:08:41 INFO  AppStartup:85 - Menu master id = 1
+2018-09-16 14:11:35 INFO  AppStartup:56 - user id = 1
+2018-09-16 14:11:38 INFO  AppStartup:85 - Menu master id = 1

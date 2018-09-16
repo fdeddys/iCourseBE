@@ -38,8 +38,6 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
 
         Optional<User> optionalUser = userRepository.findByName("deddy");
 
-//        User checkUser = userService.findOneByName("deddy");
-//        logger.info("----------------------------------------> " +checkUser);
         if (optionalUser.isPresent() ){
             return;
         }
@@ -309,6 +307,53 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         roleMenuPay.setCreatedBy(userAdmin);
         roleMenuPay.setUpdatedBy(userAdmin);
         roleMenuService.save(roleMenuPay);
+
+
+        //  -----------------------------------------------------------------------------------------------------------
+        Menu menuReport = new Menu();
+        menuReport.setName("report");
+        menuReport.setDescription("Report");
+        menuReport.setParentId(0L);
+        menuReport.setIcon("settings");
+        menuReport.setStatus(1);
+        menuReport.setCreatedBy(userAdmin);
+        menuReport.setUpdatedBy(userAdmin);
+        menuReport = menuService.addnew(menuReport);
+
+        RoleMenuId roleMenuIdReport = new RoleMenuId();
+        roleMenuIdReport.setMenuId(menuReport.getId());
+        roleMenuIdReport.setRoleId(roleAdmin.getId());
+
+        RoleMenu roleMenuReport = new RoleMenu();
+        roleMenuReport.setStatus(EntityStatus.ACTIVE);
+        roleMenuReport.setRoleMenuId(roleMenuIdReport);
+        roleMenuReport.setCreatedBy(userAdmin);
+        roleMenuReport.setUpdatedBy(userAdmin);
+        roleMenuService.save(roleMenuReport);
+
+
+
+        Menu menuReportForm = new Menu();
+        menuReportForm.setName("report-form");
+        menuReportForm.setDescription("Report");
+        menuReportForm.setLink("report-form");
+        menuReportForm.setParentId(menuReport.getId());
+        menuReportForm.setIcon("person");
+        menuReportForm.setStatus(1);
+        menuReportForm.setCreatedBy(userAdmin);
+        menuReportForm.setUpdatedBy(userAdmin);
+        menuReportForm = menuService.addnew(menuReportForm);
+
+        RoleMenuId roleMenuIdReportForm = new RoleMenuId();
+        roleMenuIdReportForm.setMenuId(menuReportForm.getId());
+        roleMenuIdReportForm.setRoleId(roleAdmin.getId());
+
+        RoleMenu roleMenuReportForm = new RoleMenu();
+        roleMenuReportForm.setStatus(EntityStatus.ACTIVE);
+        roleMenuReportForm.setRoleMenuId(roleMenuIdReportForm);
+        roleMenuReportForm.setCreatedBy(userAdmin);
+        roleMenuReportForm.setUpdatedBy(userAdmin);
+        roleMenuService.save(roleMenuReportForm);
 
 
         //  -----------------------------------------------------------------------------------------------------------
