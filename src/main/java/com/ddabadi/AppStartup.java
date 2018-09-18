@@ -211,7 +211,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         roleMenuStudent.setRoleMenuId(roleMenuIdStudent);
         roleMenuStudent.setCreatedBy(userAdmin);
         roleMenuStudent.setUpdatedBy(userAdmin);
-        roleMenuService.save(roleMenuClass);
+        roleMenuService.save(roleMenuStudent);
 
 
 
