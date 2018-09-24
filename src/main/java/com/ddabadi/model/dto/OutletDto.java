@@ -13,11 +13,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class OutletDto implements Serializable {
+public class OutletDto extends Outlet implements Serializable {
 
+    private String groupOutletId;
     private String errCode;
     private String errDesc;
-    private Outlet outlet;
-    private Page<Outlet> resultPage;
 
 }

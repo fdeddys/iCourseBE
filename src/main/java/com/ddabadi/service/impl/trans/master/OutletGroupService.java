@@ -5,8 +5,10 @@ import com.ddabadi.model.User;
 import com.ddabadi.model.dto.OutletGroupDto;
 import com.ddabadi.repository.GroupOutletRepository;
 import com.ddabadi.service.CustomService;
+import com.ddabadi.service.impl.ErrCodeServiceImpl;
 import com.ddabadi.service.impl.UserServiceImpl;
-import com.ddabadi.util.SmStockUtil;
+
+import com.ddabadi.service.util.ErrCodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,15 +21,13 @@ import java.util.Optional;
 
 import static com.ddabadi.config.BaseErrorCode.*;
 import static com.ddabadi.config.BaseErrorCode.ERR_CODE_SUCCESS;
-import static com.ddabadi.config.BaseErrorCode.ERR_MSG_SUCCESS;
 
 @Service
 public class OutletGroupService implements CustomService<OutletGroupDto> {
 
-    @Autowired
-    private GroupOutletRepository repository;
-    @Autowired
-    private UserServiceImpl userService;
+    @Autowired private GroupOutletRepository repository;
+    @Autowired private UserServiceImpl userService;
+    @Autowired private ErrCodeServiceImpl errorCodeService;
 
     @Override
     public OutletGroupDto addnew(OutletGroupDto outletGroupDto) {
@@ -46,7 +46,7 @@ public class OutletGroupService implements CustomService<OutletGroupDto> {
 
         outletGroupDto.setId(newRec.getId());
         outletGroupDto.setErrCode(ERR_CODE_SUCCESS);
-        outletGroupDto.setErrDesc(ERR_MSG_SUCCESS);
+        outletGroupDto.setErrDesc(errorCodeService.findByCode(ERR_CODE_SUCCESS).getDescription());
         return outletGroupDto;
     }
 
@@ -67,10 +67,10 @@ public class OutletGroupService implements CustomService<OutletGroupDto> {
             updateOutlet.setUpdatedBy(user);
             repository.save(updateOutlet);
             outletGroupDto.setErrCode(ERR_CODE_SUCCESS);
-            outletGroupDto.setErrDesc(ERR_MSG_SUCCESS);
+            outletGroupDto.setErrDesc(errorCodeService.findByCode(ERR_CODE_SUCCESS).getDescription());
         } else {
             outletGroupDto.setErrCode(ERR_CODE_ID_NOT_FOUND);
-            outletGroupDto.setErrDesc(ERR_MSG_ID_NOT_FOUND);
+            outletGroupDto.setErrDesc(errorCodeService.findByCode(ERR_CODE_ID_NOT_FOUND).getDescription());
         }
 
         return outletGroupDto;
@@ -93,5 +93,11 @@ public class OutletGroupService implements CustomService<OutletGroupDto> {
         filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
         System.out.println("filter " + filterDto);
         return repository.findByFilter(filterDto, pageRequest);
+    }
+
+    public Optional<GroupOutlet> findById(String id) {
+
+        return repository.findById(id);
+
     }
 }

@@ -7,10 +7,7 @@ import com.ddabadi.model.dto.UserRoleDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.RoleRepository;
 import com.ddabadi.repository.UserRepository;
-import com.ddabadi.service.impl.MenuServiceImpl;
-import com.ddabadi.service.impl.RoleMenuServiceImpl;
-import com.ddabadi.service.impl.UserRoleServiceImpl;
-import com.ddabadi.service.impl.UserServiceImpl;
+import com.ddabadi.service.impl.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -32,6 +29,8 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired private RoleMenuServiceImpl roleMenuService;
     @Autowired private UserRoleServiceImpl userRoleService;
     @Autowired private UserRepository userRepository;
+
+    @Autowired private ErrCodeServiceImpl errCodeService;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
@@ -122,7 +121,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         Menu menuOutlet = new Menu();
         menuOutlet.setName("outlet");
         menuOutlet.setDescription("Outlet");
-        menuOutlet.setLink("Outlet");
+        menuOutlet.setLink("outlet");
         menuOutlet.setParentId(menuMaster.getId());
         menuOutlet.setIcon("person");
         menuOutlet.setStatus(1);
@@ -449,6 +448,19 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         roleMenuAccMtx.setCreatedBy(userAdmin);
         roleMenuAccMtx.setUpdatedBy(userAdmin);
         roleMenuService.save(roleMenuAccMtx);
+
+
+        //  -----------------------------------------------------------------------------------------------------------
+        ErrCode err0 = new ErrCode();
+        err0.setCode("00");
+        err0.setDescription("Success");
+        errCodeService.save(err0);
+
+        ErrCode err1 = new ErrCode();
+        err1.setCode("01");
+        err1.setDescription("Id Not Found");
+        errCodeService.save(err1);
+
 
 
     }
