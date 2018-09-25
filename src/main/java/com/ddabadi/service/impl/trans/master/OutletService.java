@@ -123,4 +123,7 @@ public class OutletService implements CustomService<OutletDto> {
     }
 
 
+    public Optional<Outlet> findById(String outletId) {
+        return repository.findById(outletId);
+    }
 }

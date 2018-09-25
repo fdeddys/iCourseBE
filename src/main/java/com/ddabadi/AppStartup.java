@@ -167,9 +167,9 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
 
 
         Menu menuClass = new Menu();
-        menuClass.setName("classcourse");
+        menuClass.setName("classes");
         menuClass.setDescription("Class");
-        menuClass.setLink("classcourse");
+        menuClass.setLink("classes");
         menuClass.setParentId(menuMaster.getId());
         menuClass.setIcon("person");
         menuClass.setStatus(1);

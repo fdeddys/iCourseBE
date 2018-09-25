@@ -1,6 +1,7 @@
 package com.ddabadi.service.impl;
 
 
+import com.ddabadi.model.Outlet;
 import com.ddabadi.model.User;
 import com.ddabadi.model.UserRole;
 import com.ddabadi.model.compositekey.UserRoleId;
@@ -9,6 +10,7 @@ import com.ddabadi.model.dto.UserDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.UserRepository;
 import com.ddabadi.service.UserService;
+import com.ddabadi.service.impl.trans.master.OutletService;
 import com.ddabadi.util.GenerateNumber;
 import com.ddabadi.util.PasswordEncode;
 
@@ -41,6 +43,8 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
     @Autowired
     private UserRoleServiceImpl userRoleService;
 
+    @Autowired private OutletService outletService;
+
     private static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Transactional(readOnly = true)
@@ -72,6 +76,12 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
                 return userDto;
             }
 
+            Optional<Outlet> outletCek = outletService.findById(userDto.getOutletId());
+            if (!outletCek.isPresent()) {
+                userDto.setErrMsg("Outlet not exsist ! ");
+                return userDto;
+            }
+
             String username = this.getCurrentUser();
             log.debug("New Record ");
             User newRec = new User();
@@ -82,6 +92,7 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
             newRec.setPassword(passwordEncode.encodeWithHash(password));
             newRec.setStatus(userDto.getStatus());
             newRec.setRememberToken("");
+            newRec.setOutlet(outletCek.get());
             newRec.setUpdatedBy(username);
             newRec.setCreatedBy(username);
             newRec = repository.save(newRec);
@@ -108,6 +119,12 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
             Optional<User> optionalUser = repository.findById(idOld);
             if (optionalUser.isPresent()){
 
+                Optional<Outlet> outletCek = outletService.findById(userDto.getOutletId());
+                if (!outletCek.isPresent()) {
+                    userDto.setErrMsg("Outlet not exsist ! ");
+                    return userDto;
+                }
+
                 String username = this.getCurrentUser();
                 User oldMember = optionalUser.get();
                 oldMember.setFirstName(userDto.getFirstName());
@@ -117,6 +134,7 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
                 oldMember.setRememberToken(userDto.getRememberToken());
                 oldMember.setUpdatedAt(new Date());
                 oldMember.setUpdatedBy(username);
+                oldMember.setOutlet(outletCek.get());
                 oldMember = repository.save(oldMember);
 
                 result.setId(oldMember.getId());

@@ -12,6 +12,7 @@ public class UserDto extends User {
 
     private String errMsg;
     private String oldPass;
+    private String outletId;
     private Long userId;
     private Long roleId;
 
