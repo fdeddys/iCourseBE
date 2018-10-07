@@ -35,6 +35,7 @@ public class ClassesService implements CustomService<ClassesDto> {
         Classes newRec = new Classes();
         newRec.setName(classesDto.getName());
         newRec.setMonthlyFee(classesDto.getMonthlyFee());
+        newRec.setClassCode(classesDto.getClassCode());
         newRec.setOutlet(user.getOutlet());
         newRec.setStatus(EntityStatus.ACTIVE);
         newRec.setUpdatedBy(user);
@@ -61,6 +62,7 @@ public class ClassesService implements CustomService<ClassesDto> {
             Classes updateRec = updateDataOpt.get();
             updateRec.setMonthlyFee(classesDto.getMonthlyFee());
             updateRec.setName(classesDto.getName());
+            updateRec.setClassCode(classesDto.getClassCode());
             updateRec.setStatus(classesDto.getStatus());
             updateRec.setUpdatedBy(user);
             repository.save(updateRec);

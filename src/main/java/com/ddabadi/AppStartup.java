@@ -43,7 +43,6 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
 
     @Autowired private TeacherService teacherService;
     @Autowired private StudentService studentService;
-    @Autowired private StudentDetailService studentDetailService;
 
 
     @Override
@@ -540,7 +539,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         classesSMU.setMonthlyFee(BigInteger.valueOf(750000L));
         classesSMU.setStatus(EntityStatus.ACTIVE);
         classesSMU.setClassCode("CSMU");
-        classesSMU = classesService.addnew(classesSD);
+        classesSMU = classesService.addnew(classesSMU);
 
         //  -----------------------------------------------------------------------------------------------------------
         RoomDto room01 = new RoomDto();
@@ -602,12 +601,8 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         student01.setSchool("SMA XX1");
         student01.setAddress1("alamat joni1");
         student01.setAddress2("alamat joni2");
+        student01.setClassesId(classesSMU.getId());
         student01 = studentService.addnew(student01);
-
-        StudentDetailDto studentDetail01 = new StudentDetailDto();
-        studentDetail01.setStudentId(student01.getId());
-        studentDetail01.setClassId(classesSMU.getId());
-        studentDetail01 = studentDetailService.addnew(studentDetail01);
 
         StudentDto student02 = new StudentDto();
         student02.setName("Ani");
@@ -615,12 +610,8 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         student02.setSchool("SMP 1");
         student02.setAddress1("alamat ani1");
         student02.setAddress2("alamat ani2");
+        student02.setClassesId(classesSMP.getId());
         student02 = studentService.addnew(student02);
-
-        StudentDetailDto studentDetail02 = new StudentDetailDto();
-        studentDetail02.setStudentId(student02.getId());
-        studentDetail02.setClassId(classesSMP.getId());
-        studentDetail02 = studentDetailService.addnew(studentDetail02);
 
         StudentDto student03 = new StudentDto();
         student03.setName("Herman");
@@ -628,13 +619,8 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         student03.setSchool("SD aa");
         student03.setAddress1("alamat Herman 1");
         student03.setAddress2("alamat Herman 2");
+        student03.setClassesId(classesSD.getId());
         student03 = studentService.addnew(student03);
-
-        StudentDetailDto studentDetail03 = new StudentDetailDto();
-        studentDetail03.setStudentId(student03.getId());
-        studentDetail03.setClassId(classesSD.getId());
-        studentDetail03 = studentDetailService.addnew(studentDetail03);
-
 
     }
 }

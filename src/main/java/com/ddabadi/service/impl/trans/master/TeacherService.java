@@ -10,7 +10,11 @@ import com.ddabadi.service.impl.ErrCodeServiceImpl;
 import com.ddabadi.service.impl.UserServiceImpl;
 import com.ddabadi.util.GenerateNumber;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -83,5 +87,20 @@ public class TeacherService implements CustomService<TeacherDto> {
         }
 
         return teacherDto;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Teacher> searchByFilter(TeacherDto filterDto, int page, int total) {
+        User user = userService.getCurUserAsObj();
+        Sort sort = new Sort(Sort.Direction.ASC,"name");
+        PageRequest pageRequest = PageRequest.of (page -1, total, sort);
+
+        filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
+        System.out.println("filter " + filterDto);
+        Page<Teacher> res = repository.findByFilter(filterDto,
+                user.getOutlet() == null? null : user.getOutlet().getId(),
+                pageRequest);
+
+        return  res;
     }
 }

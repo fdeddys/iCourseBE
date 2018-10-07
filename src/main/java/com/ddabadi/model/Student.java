@@ -29,13 +29,12 @@ public class Student extends Person implements Serializable {
     @Column
     private EntityStatus status;
 
-//    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id")
-//    private List<StudentDetail> studentDetails = new ArrayList<>();
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "outlet_id")
     private Outlet outlet;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "classcourse_id")
+    private Classes classes;
 
 }

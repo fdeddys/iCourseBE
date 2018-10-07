@@ -1,5 +1,6 @@
 package com.ddabadi.service.impl.trans.master;
 
+import com.ddabadi.model.Classes;
 import com.ddabadi.model.Student;
 import com.ddabadi.model.User;
 import com.ddabadi.model.dto.StudentDto;
@@ -10,6 +11,9 @@ import com.ddabadi.service.impl.ErrCodeServiceImpl;
 import com.ddabadi.service.impl.UserServiceImpl;
 import com.ddabadi.util.GenerateNumber;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,16 +24,22 @@ import static com.ddabadi.config.BaseErrorCode.ERR_CODE_SUCCESS;
 @Service
 public class StudentService implements CustomService<StudentDto> {
 
-
-    @Autowired
-    private UserServiceImpl userService;
+    @Autowired private UserServiceImpl userService;
     @Autowired private ErrCodeServiceImpl errorCodeService;
     @Autowired private StudentRepository repository;
     @Autowired private GenerateNumber generator;
-
+    @Autowired private ClassesService classesService;
 
     @Override
     public StudentDto addnew(StudentDto studentDto) {
+
+        Optional<Classes> classesOptional = classesService.findById(studentDto.getClassesId());
+        if (!classesOptional.isPresent()){
+            studentDto.setErrCode(ERR_CODE_ID_NOT_FOUND);
+            studentDto.setErrDesc("Class ["+studentDto.getClassesId()+"] "+errorCodeService.findByCode(ERR_CODE_ID_NOT_FOUND).getDescription());
+            return studentDto;
+        }
+
         User user = userService.getCurUserAsObj();
 
         studentDto.setId(null);
@@ -41,6 +51,7 @@ public class StudentService implements CustomService<StudentDto> {
         newRec.setPhone(studentDto.getPhone());
         newRec.setSchool(studentDto.getSchool());
         newRec.setOutlet(user.getOutlet());
+        newRec.setClasses(classesOptional.get());
         newRec.setStatus(EntityStatus.ACTIVE);
         newRec.setUpdatedBy(user);
         newRec.setCreatedBy(user);
@@ -60,6 +71,14 @@ public class StudentService implements CustomService<StudentDto> {
 
     @Override
     public StudentDto update(StudentDto studentDto) {
+        Optional<Classes> classesOptional = classesService.findById(studentDto.getClassesId());
+        if (!classesOptional.isPresent()){
+            studentDto.setErrCode(ERR_CODE_ID_NOT_FOUND);
+            studentDto.setErrDesc("Class ["+studentDto.getClassesId()+"] "+errorCodeService.findByCode(ERR_CODE_ID_NOT_FOUND).getDescription());
+            return studentDto;
+        }
+
+
         User user = userService.getCurUserAsObj();
 
         Optional<Student> updateDataOpt = repository.findById(studentDto.getId());
@@ -72,6 +91,7 @@ public class StudentService implements CustomService<StudentDto> {
             updateRec.setPhone(studentDto.getPhone());
             updateRec.setSchool(studentDto.getSchool());
             updateRec.setStatus(studentDto.getStatus());
+            updateRec.setClasses(classesOptional.get());
             updateRec.setUpdatedBy(user);
 
             repository.save(updateRec);
@@ -87,5 +107,19 @@ public class StudentService implements CustomService<StudentDto> {
 
     public Optional<Student> findById(String studentId) {
         return repository.findById(studentId);
+    }
+
+    public Page<Student> searchByFilter(StudentDto filterDto, Integer page, Integer total) {
+        User user = userService.getCurUserAsObj();
+        Sort sort = new Sort(Sort.Direction.ASC,"name");
+        PageRequest pageRequest = PageRequest.of (page -1, total, sort);
+
+        filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
+        System.out.println("filter " + filterDto);
+        Page<Student> res = repository.findByFilter(filterDto,
+                user.getOutlet() == null? null : user.getOutlet().getId(),
+                pageRequest);
+
+        return  res;
     }
 }

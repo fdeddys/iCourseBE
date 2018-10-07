@@ -15,6 +15,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 public class StudentDto extends Student implements Serializable {
 
+    private String classesId;
     private String errCode;
     private String errDesc;
 

@@ -516,3 +516,148 @@
 2018-10-07 13:33:00 INFO  AppStartup:101 - Menu master id = 1
 2018-10-07 13:34:18 INFO  AppStartup:72 - user id = 1
 2018-10-07 13:34:20 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:13:08 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:15:09 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:15:11 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:16:17 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:16:45 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:16:56 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 14:17:01 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 14:17:02 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:18:22 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:18:25 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:19:47 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:25:49 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:25:52 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:27:18 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:31:04 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:31:06 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:32:51 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:32:51 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:35:14 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:35:14 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:36:10 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:36:10 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:37:38 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:37:38 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:38:11 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:38:11 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:44:16 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:44:16 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:45:20 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:45:20 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:46:45 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:46:45 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:47:02 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:48:05 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:49:59 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:49:59 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:51:06 INFO  AppStartup:72 - user id = 1
+2018-10-07 14:51:06 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 14:52:57 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:53:06 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:53:09 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=b, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:53:11 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 14:53:15 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 15:07:41 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 15:13:59 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:14:35 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:14:51 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:19:08 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:19:21 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:19:25 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:19:51 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:20:20 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:20:57 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:23:06 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:23:58 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:24:46 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:25:00 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:25:14 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:25:17 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:25:34 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:25:37 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:25:54 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:25:56 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:28:22 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:28:54 INFO  AppStartup:72 - user id = 1
+2018-10-07 15:28:54 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 15:29:03 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:29:15 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:29:18 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:29:41 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 15:29:48 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 15:29:48 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:29:50 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:30:00 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:30:00 INFO  OutletRest:48 - filter object OutletGroupDto(errCode=null, errDesc=null)
+2018-10-07 15:30:00 INFO  OutletRest:44 - filter object OutletDto(groupOutletId=null, errCode=null, errDesc=null)
+2018-10-07 15:30:04 INFO  OutletRest:44 - filter object OutletDto(groupOutletId=null, errCode=null, errDesc=null)
+2018-10-07 15:31:28 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:31:46 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:32:06 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null), errCode=null, errDesc=null)
+2018-10-07 15:32:07 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:32:10 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:32:11 INFO  OutletRest:48 - filter object OutletGroupDto(errCode=null, errDesc=null)
+2018-10-07 15:32:11 INFO  OutletRest:44 - filter object OutletDto(groupOutletId=null, errCode=null, errDesc=null)
+2018-10-07 15:32:11 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:32:12 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:32:15 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:32:16 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 15:39:51 INFO  AppStartup:71 - user id = 1
+2018-10-07 15:39:51 INFO  AppStartup:100 - Menu master id = 1
+2018-10-07 15:40:29 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 15:40:43 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:41:03 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), setClassId=null, errCode=null, errDesc=null)
+2018-10-07 15:43:34 INFO  AppStartup:71 - user id = 1
+2018-10-07 15:43:34 INFO  AppStartup:100 - Menu master id = 1
+2018-10-07 15:43:44 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), setClassId=null, errCode=null, errDesc=null)
+2018-10-07 15:43:52 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), setClassId=null, errCode=null, errDesc=null)
+2018-10-07 15:50:34 INFO  AppStartup:71 - user id = 1
+2018-10-07 15:50:34 INFO  AppStartup:100 - Menu master id = 1
+2018-10-07 15:52:11 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 15:53:16 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 15:53:20 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:56:21 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 15:56:37 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 15:57:37 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 15:57:52 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:00:40 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:00:42 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:00:45 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:00:45 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:00:48 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:01:28 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:01:29 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:01:39 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:01:42 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:01:51 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:01:57 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 16:02:32 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 16:02:37 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 16:02:40 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:02:51 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:03:20 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:03:27 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:03:28 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:03:32 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:05:42 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:06:47 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:20 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:27 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:38 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:43 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:47 INFO  OutletRest:48 - filter object OutletGroupDto(errCode=null, errDesc=null)
+2018-10-07 16:07:48 INFO  OutletRest:48 - filter object OutletGroupDto(errCode=null, errDesc=null)
+2018-10-07 16:07:48 INFO  OutletRest:44 - filter object OutletDto(groupOutletId=null, errCode=null, errDesc=null)
+2018-10-07 16:07:49 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:51 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:07:53 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:07:54 INFO  OutletRest:41 - filter object TeacherDto(super=Teacher(super=Person(id=0, name=, address1=null, address2=null, phone=null), teacherCode=null, status=null, outlet=null, baseSalary=null, allowance=null), errCode=null, errDesc=null)
+2018-10-07 16:07:58 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:08:01 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:08:03 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:08:04 INFO  OutletRest:41 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-07 16:08:06 INFO  OutletRest:42 - filter object StudentDto(super=Student(super=Person(id=0, name=, address1=null, address2=null, phone=null), studentCode=null, school=null, status=null, outlet=null, classes=null), classesId=null, errCode=null, errDesc=null)
+2018-10-07 16:09:22 INFO  AppStartup:71 - user id = 1
+2018-10-07 16:09:25 INFO  AppStartup:100 - Menu master id = 1
