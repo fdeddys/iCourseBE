@@ -3,17 +3,21 @@ package com.ddabadi;
 import com.ddabadi.model.*;
 import com.ddabadi.model.compositekey.RoleMenuId;
 import com.ddabadi.model.compositekey.UserRoleId;
-import com.ddabadi.model.dto.UserRoleDto;
+import com.ddabadi.model.dto.*;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.RoleRepository;
 import com.ddabadi.repository.UserRepository;
 import com.ddabadi.service.impl.*;
+import com.ddabadi.service.impl.trans.master.*;
+import com.ddabadi.util.Globals;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Controller;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +36,16 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
 
     @Autowired private ErrCodeServiceImpl errCodeService;
 
+    @Autowired private OutletGroupService outletGroupService;
+    @Autowired private OutletService outletService;
+    @Autowired private ClassesService classesService;
+    @Autowired private RoomService roomService;
+
+    @Autowired private TeacherService teacherService;
+    @Autowired private StudentService studentService;
+    @Autowired private StudentDetailService studentDetailService;
+
+
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 
@@ -40,6 +54,9 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         if (optionalUser.isPresent() ){
             return;
         }
+
+        Globals.devMode = 1;
+        Globals.userDevMode ="deddy";
 
         User userAdmin = new User();
         userAdmin.setFirstName("deddy");
@@ -461,6 +478,162 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         err1.setDescription("Id Not Found");
         errCodeService.save(err1);
 
+        //  -----------------------------------------------------------------------------------------------------------
+        OutletGroupDto gr1 = new OutletGroupDto();
+        gr1.setName("Example Group 1");
+        gr1 = outletGroupService.addnew(gr1);
+
+        OutletGroupDto gr2 = new OutletGroupDto();
+        gr2.setName("Example Group 1");
+        gr2 = outletGroupService.addnew(gr1);
+
+        //  -----------------------------------------------------------------------------------------------------------
+        OutletDto outlet1 = new OutletDto();
+        outlet1.setName("Outlet 1");
+        outlet1.setGroupOutletId(gr1.getId());
+        outlet1.setAddress1("Address 1");
+        outlet1.setAddress2("Address 1 other");
+        outlet1.setRegistrationFee(BigInteger.valueOf(500000));
+        outlet1 = outletService.addnew(outlet1);
+
+        OutletDto outlet2 = new OutletDto();
+        outlet2.setName("Outlet 2");
+        outlet2.setGroupOutletId(gr1.getId());
+        outlet2.setAddress1("Address 2");
+        outlet2.setAddress2("Address 2 other");
+        outlet2.setRegistrationFee(BigInteger.valueOf(600000));
+        outlet2 = outletService.addnew(outlet2);
+
+        OutletDto outletA = new OutletDto();
+        outletA.setName("Outlet A");
+        outletA.setGroupOutletId(gr2.getId());
+        outletA.setAddress1("Address A");
+        outletA.setAddress2("Address A other");
+        outletA.setRegistrationFee(BigInteger.valueOf(1000000));
+        outletA = outletService.addnew(outlet1);
+
+        OutletDto outletB = new OutletDto();
+        outletB.setName("Outlet B");
+        outletB.setGroupOutletId(gr2.getId());
+        outletB.setAddress1("Address B");
+        outletB.setAddress2("Address B other");
+        outletB.setRegistrationFee(BigInteger.valueOf(1200000));
+        outletB = outletService.addnew(outletB);
+
+        //  -----------------------------------------------------------------------------------------------------------
+        ClassesDto classesSD = new ClassesDto();
+        classesSD.setName("Kelas SD");
+        classesSD.setMonthlyFee(BigInteger.valueOf(750000L));
+        classesSD.setStatus(EntityStatus.ACTIVE);
+        classesSD.setClassCode("CSD");
+        classesSD = classesService.addnew(classesSD);
+
+        ClassesDto classesSMP = new ClassesDto();
+        classesSMP.setName("Kelas SMP");
+        classesSMP.setMonthlyFee(BigInteger.valueOf(750000L));
+        classesSMP.setStatus(EntityStatus.ACTIVE);
+        classesSMP.setClassCode("CSMP");
+        classesSMP = classesService.addnew(classesSMP);
+
+        ClassesDto classesSMU = new ClassesDto();
+        classesSMU.setName("Kelas CSMU");
+        classesSMU.setMonthlyFee(BigInteger.valueOf(750000L));
+        classesSMU.setStatus(EntityStatus.ACTIVE);
+        classesSMU.setClassCode("CSMU");
+        classesSMU = classesService.addnew(classesSD);
+
+        //  -----------------------------------------------------------------------------------------------------------
+        RoomDto room01 = new RoomDto();
+        room01.setName("Room no 1");
+        room01.setStatus(EntityStatus.ACTIVE);
+        room01.setOutlet(outlet1);
+        room01 = roomService.addnew(room01);
+
+        RoomDto room02 = new RoomDto();
+        room02.setName("Room no 2");
+        room02.setStatus(EntityStatus.ACTIVE);
+        room02.setOutlet(outlet1);
+        room02 = roomService.addnew(room02);
+
+        RoomDto roomA = new RoomDto();
+        roomA.setName("Room A");
+        roomA.setStatus(EntityStatus.ACTIVE);
+        roomA.setOutlet(outlet2);
+        roomA = roomService.addnew(roomA);
+
+        RoomDto roomB = new RoomDto();
+        roomB.setName("Room B");
+        roomB.setStatus(EntityStatus.ACTIVE);
+        roomB.setOutlet(outlet2);
+        roomB = roomService.addnew(roomB);
+
+        //  -----------------------------------------------------------------------------------------------------------
+        TeacherDto teacher01 = new TeacherDto();
+        teacher01.setName("Andi");
+        teacher01.setBaseSalary(BigDecimal.valueOf(1000000L));
+        teacher01.setAllowance(BigDecimal.valueOf(500000L));
+        teacher01.setPhone("08112234");
+        teacher01.setAddress1("alamat1");
+        teacher01.setAddress2("alamat2");
+        teacher01 = teacherService.addnew(teacher01);
+
+        TeacherDto teacher02 = new TeacherDto();
+        teacher02.setName("Budi");
+        teacher02.setBaseSalary(BigDecimal.valueOf(1000000L));
+        teacher02.setAllowance(BigDecimal.valueOf(500000L));
+        teacher02.setPhone("08123456789");
+        teacher02.setAddress1("alamat22");
+        teacher02.setAddress2("alamat2222");
+        teacher02 = teacherService.addnew(teacher02);
+
+        TeacherDto teacher03 = new TeacherDto();
+        teacher03.setName("Anton");
+        teacher03.setBaseSalary(BigDecimal.valueOf(1000000L));
+        teacher03.setAllowance(BigDecimal.valueOf(500000L));
+        teacher03.setPhone("081333333");
+        teacher03.setAddress1("alamat33");
+        teacher03.setAddress2("alamat3");
+        teacher03 = teacherService.addnew(teacher03);
+
+        //  -----------------------------------------------------------------------------------------------------------
+        StudentDto student01 = new StudentDto();
+        student01.setName("Joni");
+        student01.setPhone("07112211");
+        student01.setSchool("SMA XX1");
+        student01.setAddress1("alamat joni1");
+        student01.setAddress2("alamat joni2");
+        student01 = studentService.addnew(student01);
+
+        StudentDetailDto studentDetail01 = new StudentDetailDto();
+        studentDetail01.setStudentId(student01.getId());
+        studentDetail01.setClassId(classesSMU.getId());
+        studentDetail01 = studentDetailService.addnew(studentDetail01);
+
+        StudentDto student02 = new StudentDto();
+        student02.setName("Ani");
+        student02.setPhone("021eqeq");
+        student02.setSchool("SMP 1");
+        student02.setAddress1("alamat ani1");
+        student02.setAddress2("alamat ani2");
+        student02 = studentService.addnew(student02);
+
+        StudentDetailDto studentDetail02 = new StudentDetailDto();
+        studentDetail02.setStudentId(student02.getId());
+        studentDetail02.setClassId(classesSMP.getId());
+        studentDetail02 = studentDetailService.addnew(studentDetail02);
+
+        StudentDto student03 = new StudentDto();
+        student03.setName("Herman");
+        student03.setPhone("023456");
+        student03.setSchool("SD aa");
+        student03.setAddress1("alamat Herman 1");
+        student03.setAddress2("alamat Herman 2");
+        student03 = studentService.addnew(student03);
+
+        StudentDetailDto studentDetail03 = new StudentDetailDto();
+        studentDetail03.setStudentId(student03.getId());
+        studentDetail03.setClassId(classesSD.getId());
+        studentDetail03 = studentDetailService.addnew(studentDetail03);
 
 
     }

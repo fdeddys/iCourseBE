@@ -25,7 +25,7 @@ public class StudentDetail extends Audit implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "classcourse_id")
-    private Classcourse classcourse;
+    private Classes classes;
 
     @Column(name = "status")
     private EntityStatus status;

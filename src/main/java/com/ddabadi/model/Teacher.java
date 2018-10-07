@@ -16,7 +16,8 @@ import java.math.BigDecimal;
 @Table(name = "m_teacher")
 public class Teacher extends Person implements Serializable {
 
-    @Column
+    // A99999
+    @Column(length = 5)
     private String teacherCode;
 
     @Column

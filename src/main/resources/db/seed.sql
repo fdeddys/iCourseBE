@@ -55,7 +55,7 @@ INSERT INTO public.m_role_menu(
 
 INSERT INTO public.m_menus(
 	id, name, description, created_at, updated_at, created_by, updated_by, link, parent_id, icon, status)
-	VALUES (6, 'classcourse', 'Class', '2018-09-11', '2018-09-11', 2, 2, 'classcourse',  1, 'person', 1);
+	VALUES (6, 'classes', 'Class', '2018-09-11', '2018-09-11', 2, 2, 'classes',  1, 'person', 1);
 
 INSERT INTO public.m_role_menu(
 	role_id, menu_id, status, created_at, updated_at, created_by, updated_by)

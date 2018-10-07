@@ -12,6 +12,7 @@ import com.ddabadi.repository.UserRepository;
 import com.ddabadi.service.UserService;
 import com.ddabadi.service.impl.trans.master.OutletService;
 import com.ddabadi.util.GenerateNumber;
+import com.ddabadi.util.Globals;
 import com.ddabadi.util.PasswordEncode;
 
 import org.slf4j.Logger;
@@ -231,6 +232,9 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
 
 
     public String getCurrentUser(){
+        if (Globals.devMode == 1 ){
+            return Globals.userDevMode;
+        }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.getName();
     }

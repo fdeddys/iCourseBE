@@ -21,7 +21,7 @@ public class Student extends Person implements Serializable {
 
 
     @Column
-    private String studendCode;
+    private String studentCode;
 
     @Column(length = 150)
     private String school;
@@ -29,9 +29,9 @@ public class Student extends Person implements Serializable {
     @Column
     private EntityStatus status;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "id")
-    private List<StudentDetail> studentDetails = new ArrayList<>();
+//    private List<StudentDetail> studentDetails = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "outlet_id")

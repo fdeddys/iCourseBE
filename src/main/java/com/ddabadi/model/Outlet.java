@@ -23,7 +23,7 @@ public class Outlet extends Audit implements Serializable {
     @Column(columnDefinition = "CHAR(50)")
     private String id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "outlet")
     private GroupOutlet groupOutlet;
 

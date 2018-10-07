@@ -3,6 +3,7 @@ package com.ddabadi.model;
 import com.ddabadi.model.auditor.Audit;
 import com.ddabadi.model.enu.EntityStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -27,11 +28,15 @@ public class Room extends Audit implements Serializable {
     @Column(length = 100)
     private String name;
 
-    @JsonIgnore
+//    @JsonIgnore
+//    @JsonProperty(access = Access WRITE_ONLY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "outlet_id")
     private Outlet outlet;
 
     @Column
     private EntityStatus status;
+
+
+
 }

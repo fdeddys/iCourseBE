@@ -476,3 +476,43 @@
 2018-09-25 22:08:46 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
 2018-09-25 22:08:56 INFO  OutletRest:36 - save RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, name=Ruang lt 2 no 2, outlet=null, status=null), errCode=null, errDesc=null)
 2018-09-25 22:09:00 INFO  OutletRest:46 - filter object RoomDto(super=Room(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, name=, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 21:41:15 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 21:52:21 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:01:51 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:02:05 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:02:19 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:02:24 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:02:32 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:02:48 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:03:14 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:03:47 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:03:48 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:03:58 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:04:51 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:05:05 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:05:27 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:05:32 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:15:10 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:15:35 INFO  OutletRest:34 - save ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=SDC1, name=SD Kelas 1, monthlyFee=700000, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:15:45 INFO  OutletRest:34 - save ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=SDC2, name=SD Kelas 12, monthlyFee=700000, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:15:55 INFO  OutletRest:34 - save ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=null, classCode=SDC3, name=SD Kelas 3, monthlyFee=700000, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:15:59 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-09-26 22:16:17 INFO  OutletRest:42 - filter object ClassesDto(super=Classes(super=Audit(updatedBy=null, createdBy=null, createdAt=null, updatedAt=null), id=0, classCode=null, name=, monthlyFee=null, outlet=null, status=null), errCode=null, errDesc=null)
+2018-10-01 22:16:42 INFO  AppStartup:65 - user id = 1
+2018-10-01 22:16:45 INFO  AppStartup:94 - Menu master id = 1
+2018-10-01 22:31:11 INFO  AppStartup:65 - user id = 1
+2018-10-01 22:31:16 INFO  AppStartup:94 - Menu master id = 1
+2018-10-02 21:31:25 INFO  AppStartup:65 - user id = 1
+2018-10-02 21:31:25 INFO  AppStartup:94 - Menu master id = 1
+2018-10-04 19:26:15 INFO  AppStartup:65 - user id = 1
+2018-10-04 19:26:15 INFO  AppStartup:94 - Menu master id = 1
+2018-10-04 19:44:42 INFO  AppStartup:69 - user id = 1
+2018-10-04 19:44:42 INFO  AppStartup:98 - Menu master id = 1
+2018-10-04 19:52:08 INFO  AppStartup:69 - user id = 1
+2018-10-04 19:52:08 INFO  AppStartup:98 - Menu master id = 1
+2018-10-04 20:02:52 INFO  AppStartup:70 - user id = 1
+2018-10-04 20:02:52 INFO  AppStartup:99 - Menu master id = 1
+2018-10-07 13:33:00 INFO  AppStartup:72 - user id = 1
+2018-10-07 13:33:00 INFO  AppStartup:101 - Menu master id = 1
+2018-10-07 13:34:18 INFO  AppStartup:72 - user id = 1
+2018-10-07 13:34:20 INFO  AppStartup:101 - Menu master id = 1
