@@ -9,4 +9,12 @@ public class BaseConstant {
 
 
     public static final String DATE_TIME_PATERN ="yyyy-MM-dd HH:mm:ss";
+
+    public static final String PAYMENT_HEADER_EXTENTION = "F";
+
+    public static final String PAYMENT_DESC_REGISTRATION = "Registration Payment";
+    public static final String PAYMENT_DESC_MONTHLY = "Monthly Payment";
+    public static final String PAYMENT_DESC_MONTHLY_REGISTRATION = "Monthly Payment from Registration";
+    public static final String PAYMENT_DESC_FREE_REGISTRATION = "Monthly Free from Registration";
+
 }

@@ -3,7 +3,7 @@ package com.ddabadi.rest.trans.master;
 
 import com.ddabadi.model.Room;
 import com.ddabadi.model.dto.RoomDto;
-import com.ddabadi.service.impl.trans.master.RoomService;
+import com.ddabadi.service.impl.master.RoomService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

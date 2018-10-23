@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
@@ -21,6 +22,8 @@ public class Outlet extends Audit implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(columnDefinition = "CHAR(50)")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column
     private String id;
 
     @ManyToOne
@@ -37,6 +40,6 @@ public class Outlet extends Audit implements Serializable {
     private String address2;
 
     @Column
-    private BigInteger registrationFee;
+    private BigDecimal registrationFee;
 
 }

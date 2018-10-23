@@ -1,5 +1,6 @@
 package com.ddabadi.model;
 
+import com.ddabadi.model.auditor.Audit;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,7 +14,7 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @ToString
 @Table(name = "attendance_dt")
-public class AttendanceDt implements Serializable {
+public class AttendanceDt extends Audit implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -26,11 +27,11 @@ public class AttendanceDt implements Serializable {
     private AttendanceHd attendanceHd;
 
     @ManyToOne
-    private Student student;
+    private StudentDt studentDt;
 
     @Column
-    private String timeStart;
+    private String timeAttend;
 
     @Column
-    private String timeFinish;
+    private String timeHome;
 }

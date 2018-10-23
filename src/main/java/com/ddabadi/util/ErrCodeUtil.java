@@ -1,4 +1,4 @@
-package com.ddabadi.service.util;
+package com.ddabadi.util;
 
 import com.ddabadi.service.impl.ErrCodeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

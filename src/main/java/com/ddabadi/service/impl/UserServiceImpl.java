@@ -10,7 +10,7 @@ import com.ddabadi.model.dto.UserDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.UserRepository;
 import com.ddabadi.service.UserService;
-import com.ddabadi.service.impl.trans.master.OutletService;
+import com.ddabadi.service.impl.master.OutletService;
 import com.ddabadi.util.GenerateNumber;
 import com.ddabadi.util.Globals;
 import com.ddabadi.util.PasswordEncode;
@@ -93,7 +93,7 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
             newRec.setPassword(passwordEncode.encodeWithHash(password));
             newRec.setStatus(userDto.getStatus());
             newRec.setRememberToken("");
-            newRec.setOutlet(outletCek.get());
+            newRec.setOutletId(outletCek.get().getId());
             newRec.setUpdatedBy(username);
             newRec.setCreatedBy(username);
             newRec = repository.save(newRec);
@@ -135,7 +135,7 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
                 oldMember.setRememberToken(userDto.getRememberToken());
                 oldMember.setUpdatedAt(new Date());
                 oldMember.setUpdatedBy(username);
-                oldMember.setOutlet(outletCek.get());
+                oldMember.setOutletId(outletCek.get().getId());
                 oldMember = repository.save(oldMember);
 
                 result.setId(oldMember.getId());
@@ -243,6 +243,12 @@ public class UserServiceImpl implements  UserService, UserDetailsService{
 
         String username = this.getCurrentUser();
         return this.findOneByName(username);
+    }
+
+    public Outlet getCurOutlet(){
+
+        User user = this.getCurUserAsObj();
+        return outletService.findById(user.getOutletId()).get();
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

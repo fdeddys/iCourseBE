@@ -2,8 +2,7 @@ package com.ddabadi.rest.trans.master;
 
 import com.ddabadi.model.Student;
 import com.ddabadi.model.dto.StudentDto;
-import com.ddabadi.service.impl.trans.master.StudentService;
-import com.ddabadi.service.impl.trans.master.TeacherService;
+import com.ddabadi.service.impl.master.StudentService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

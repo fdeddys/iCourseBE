@@ -4,7 +4,7 @@ package com.ddabadi.rest.trans.master;
 import com.ddabadi.model.Outlet;
 import com.ddabadi.model.dto.OutletDto;
 
-import com.ddabadi.service.impl.trans.master.OutletService;
+import com.ddabadi.service.impl.master.OutletService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

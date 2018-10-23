@@ -4,7 +4,7 @@ public enum PaymentStatus {
 
     OUTSTANDING(0),
     APPROVED(1),
-    REJECT (2);
+    CANCELLED (2);
 
     private Integer paymenStatusCode;
 

@@ -1,8 +1,9 @@
-package com.ddabadi.service.impl.trans.master;
+package com.ddabadi.service.impl.master;
 
 import com.ddabadi.model.Classes;
 import com.ddabadi.model.Student;
 import com.ddabadi.model.User;
+import com.ddabadi.model.dto.StudentDtDto;
 import com.ddabadi.model.dto.StudentDto;
 import com.ddabadi.model.enu.EntityStatus;
 import com.ddabadi.repository.StudentRepository;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -29,20 +31,14 @@ public class StudentService implements CustomService<StudentDto> {
     @Autowired private StudentRepository repository;
     @Autowired private GenerateNumber generator;
     @Autowired private ClassesService classesService;
+    @Autowired private StudentDtService studentDtService;
 
-    @Override
+    @Transactional
     public StudentDto addnew(StudentDto studentDto) {
-
-        Optional<Classes> classesOptional = classesService.findById(studentDto.getClassesId());
-        if (!classesOptional.isPresent()){
-            studentDto.setErrCode(ERR_CODE_ID_NOT_FOUND);
-            studentDto.setErrDesc("Class ["+studentDto.getClassesId()+"] "+errorCodeService.findByCode(ERR_CODE_ID_NOT_FOUND).getDescription());
-            return studentDto;
-        }
-
+// String[] classesIds
         User user = userService.getCurUserAsObj();
 
-        studentDto.setId(null);
+//        studentDto.setId(null);
         Student newRec = new Student();
         newRec.setName(studentDto.getName());
         newRec.setStudentCode(generator.generateStudentCode(studentDto.getName()));
@@ -50,13 +46,20 @@ public class StudentService implements CustomService<StudentDto> {
         newRec.setAddress2(studentDto.getAddress2());
         newRec.setPhone(studentDto.getPhone());
         newRec.setSchool(studentDto.getSchool());
-        newRec.setOutlet(user.getOutlet());
-        newRec.setClasses(classesOptional.get());
+        newRec.setOutlet(userService.getCurOutlet());
         newRec.setStatus(EntityStatus.ACTIVE);
         newRec.setUpdatedBy(user);
         newRec.setCreatedBy(user);
         newRec = repository.save(newRec);
 
+        for (String classesId: studentDto.getClassesIds()){
+            StudentDtDto studentDtDto = new StudentDtDto();
+            studentDtDto.setIsRegistration(Boolean.TRUE);
+            studentDtDto.setStudentId(newRec.getId());
+            studentDtDto.setClassesId(classesId);
+            studentDtDto.setStudentId(newRec.getId());
+            studentDtService.addnew(studentDtDto);
+        }
         studentDto.setId(newRec.getId());
         studentDto.setStudentCode(newRec.getStudentCode());
         studentDto.setErrCode(ERR_CODE_SUCCESS);
@@ -71,13 +74,6 @@ public class StudentService implements CustomService<StudentDto> {
 
     @Override
     public StudentDto update(StudentDto studentDto) {
-        Optional<Classes> classesOptional = classesService.findById(studentDto.getClassesId());
-        if (!classesOptional.isPresent()){
-            studentDto.setErrCode(ERR_CODE_ID_NOT_FOUND);
-            studentDto.setErrDesc("Class ["+studentDto.getClassesId()+"] "+errorCodeService.findByCode(ERR_CODE_ID_NOT_FOUND).getDescription());
-            return studentDto;
-        }
-
 
         User user = userService.getCurUserAsObj();
 
@@ -91,7 +87,6 @@ public class StudentService implements CustomService<StudentDto> {
             updateRec.setPhone(studentDto.getPhone());
             updateRec.setSchool(studentDto.getSchool());
             updateRec.setStatus(studentDto.getStatus());
-            updateRec.setClasses(classesOptional.get());
             updateRec.setUpdatedBy(user);
 
             repository.save(updateRec);
@@ -117,9 +112,15 @@ public class StudentService implements CustomService<StudentDto> {
         filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
         System.out.println("filter " + filterDto);
         Page<Student> res = repository.findByFilter(filterDto,
-                user.getOutlet() == null? null : user.getOutlet().getId(),
+                userService.getCurOutlet() == null? null : userService.getCurOutlet().getId(),
                 pageRequest);
 
         return  res;
     }
+
+    public Optional<Student> findByIdLoadClasses(String studentId) {
+        return repository.findByIdLoadClasses(studentId);
+    }
+
+
 }

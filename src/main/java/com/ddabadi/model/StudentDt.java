@@ -1,9 +1,6 @@
 package com.ddabadi.model;
 
 import com.ddabadi.model.auditor.Audit;
-import com.ddabadi.model.enu.EntityStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-@Table(name = "m_room")
-public class Room extends Audit implements Serializable {
+@Table(name = "student_dt")
+public class StudentDt extends Audit implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -25,18 +22,20 @@ public class Room extends Audit implements Serializable {
     @Column
     private String id;
 
-    @Column(length = 100)
-    private String name;
-
-//    @JsonIgnore
-//    @JsonProperty(access = Access WRITE_ONLY)
     @ManyToOne
-    @JoinColumn(name = "outlet_id")
-    private Outlet outlet;
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "classcourse_id")
+    private Classes classes;
 
     @Column
-    private EntityStatus status;
+    private Boolean isRegistration;
 
-
+    @PrePersist
+    public void prePersist(){
+        this.isRegistration = Boolean.FALSE;
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.ddabadi.service.impl.trans.master;
+package com.ddabadi.service.impl.master;
 
 
 import com.ddabadi.model.GroupOutlet;
@@ -10,8 +10,6 @@ import com.ddabadi.service.CustomService;
 
 import com.ddabadi.service.impl.ErrCodeServiceImpl;
 import com.ddabadi.service.impl.UserServiceImpl;
-import com.ddabadi.service.util.ErrCodeUtil;
-import com.ddabadi.util.SmStockUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

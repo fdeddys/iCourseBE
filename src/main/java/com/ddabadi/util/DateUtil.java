@@ -1,4 +1,4 @@
-package com.ddabadi.service.util;
+package com.ddabadi.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

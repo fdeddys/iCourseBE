@@ -1,4 +1,4 @@
-package com.ddabadi.service.impl.trans.master;
+package com.ddabadi.service.impl.master;
 
 
 import com.ddabadi.model.Room;
@@ -38,7 +38,7 @@ public class RoomService implements CustomService<RoomDto> {
         roomDto.setId(null);
         Room newRec = new Room();
         newRec.setName(roomDto.getName());
-        newRec.setOutlet(user.getOutlet());
+        newRec.setOutlet(userService.getCurOutlet());
         newRec.setStatus(EntityStatus.ACTIVE);
         newRec.setUpdatedBy(user);
         newRec.setCreatedBy(user);
@@ -81,7 +81,7 @@ public class RoomService implements CustomService<RoomDto> {
         Sort sort = Sort.by("id");
         PageRequest pageRequest = PageRequest.of(page -1 , count, sort);
 
-        return repository.findByOutlet(user.getOutlet(), pageRequest);
+        return repository.findByOutlet(userService.getCurOutlet(), pageRequest);
     }
 
     @Transactional(readOnly = true)
@@ -93,7 +93,7 @@ public class RoomService implements CustomService<RoomDto> {
         filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
         System.out.println("filter " + filterDto);
         Page<Room> res = repository.findByFilter(filterDto,
-                                                 user.getOutlet() == null? null : user.getOutlet().getId(),
+                                                 userService.getCurOutlet() == null? null : userService.getCurOutlet().getId(),
                                                  pageRequest);
 
         return  res;
@@ -103,8 +103,6 @@ public class RoomService implements CustomService<RoomDto> {
     public Optional<Room> findById(String id) {
 
         return repository.findById(id);
-
     }
-
 
 }

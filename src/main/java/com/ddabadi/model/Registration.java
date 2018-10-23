@@ -2,6 +2,7 @@ package com.ddabadi.model;
 
 
 import com.ddabadi.model.auditor.Audit;
+import com.ddabadi.model.enu.CourseType;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -28,7 +29,7 @@ public class Registration extends Audit implements Serializable {
     @Column(name = "registration_date")
     private Date regDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "outlet_id")
     private Outlet outlet;
 
@@ -40,4 +41,23 @@ public class Registration extends Audit implements Serializable {
 
     @Column(name = "jam")
     private String CourseTime;
+
+    @Column
+    private CourseType typeOfCourse;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @Column
+    private String registrationNum;
+
+    @Column
+    private Boolean paid;
+
+    @PrePersist
+    private void prePersis(){
+        this.setPaid(Boolean.FALSE);
+    }
+
 }

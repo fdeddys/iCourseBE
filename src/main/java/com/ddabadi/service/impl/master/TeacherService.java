@@ -1,4 +1,4 @@
-package com.ddabadi.service.impl.trans.master;
+package com.ddabadi.service.impl.master;
 
 import com.ddabadi.model.Teacher;
 import com.ddabadi.model.User;
@@ -43,7 +43,7 @@ public class TeacherService implements CustomService<TeacherDto> {
         newRec.setAddress1(teacherDto.getAddress1());
         newRec.setAddress2(teacherDto.getAddress2());
         newRec.setPhone(teacherDto.getPhone());
-        newRec.setOutlet(user.getOutlet());
+        newRec.setOutlet(userService.getCurOutlet());
         newRec.setStatus(EntityStatus.ACTIVE);
         newRec.setUpdatedBy(user);
         newRec.setCreatedBy(user);
@@ -98,9 +98,13 @@ public class TeacherService implements CustomService<TeacherDto> {
         filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
         System.out.println("filter " + filterDto);
         Page<Teacher> res = repository.findByFilter(filterDto,
-                user.getOutlet() == null? null : user.getOutlet().getId(),
+                userService.getCurOutlet() == null? null : userService.getCurOutlet().getId(),
                 pageRequest);
 
         return  res;
+    }
+
+    public Optional<Teacher> findById(String teacherId) {
+            return repository.findById(teacherId);
     }
 }

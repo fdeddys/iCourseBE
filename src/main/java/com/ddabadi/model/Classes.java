@@ -9,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
@@ -33,13 +34,12 @@ public class Classes extends Audit implements Serializable {
     private String name;
 
     @Column
-    private BigInteger monthlyFee;
+    private BigDecimal monthlyFee;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "outlet_id")
     private Outlet outlet;
-
 
     @Column
     private EntityStatus status;

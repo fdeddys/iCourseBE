@@ -16,9 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-@Table(name = "m_student")
+@Table(name = "student")
 public class Student extends Person implements Serializable {
-
 
     @Column
     private String studentCode;
@@ -29,12 +28,8 @@ public class Student extends Person implements Serializable {
     @Column
     private EntityStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "outlet_id")
     private Outlet outlet;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "classcourse_id")
-    private Classes classes;
 
 }

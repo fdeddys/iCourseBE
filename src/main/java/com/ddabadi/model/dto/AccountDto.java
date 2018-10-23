@@ -4,11 +4,12 @@ package com.ddabadi.model.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class AccountDto {
+public class AccountDto implements Serializable {
 
     private Long id;
     private String firstName;

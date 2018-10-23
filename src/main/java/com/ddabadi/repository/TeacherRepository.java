@@ -14,7 +14,7 @@ public interface TeacherRepository extends JpaRepository<Teacher, String> {
 
     @Query(value = "select t from Teacher t " +
             "where SUBSTRING(t.teacherCode,1,1) = :karakterNama " +
-            "order by teacherCode desc ")
+            "order by t.teacherCode desc ")
     Page<Teacher> findByKarakter(@Param("karakterNama")String karakterNama,
                                  Pageable pageable);
 

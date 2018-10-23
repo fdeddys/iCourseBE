@@ -2,7 +2,7 @@ package com.ddabadi.rest.trans.master;
 
 import com.ddabadi.model.Teacher;
 import com.ddabadi.model.dto.TeacherDto;
-import com.ddabadi.service.impl.trans.master.TeacherService;
+import com.ddabadi.service.impl.master.TeacherService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

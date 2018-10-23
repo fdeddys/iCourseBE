@@ -1,13 +1,14 @@
 package com.ddabadi.model;
 
 import com.ddabadi.model.auditor.Audit;
-import com.ddabadi.model.enu.PaymentStatus;
 import com.ddabadi.model.enu.PaymentType;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
@@ -16,8 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-@Table(name = "payment")
-public class Payment extends Audit implements Serializable{
+@Table(name = "payment_dt")
+public class PaymentDt extends Audit implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -25,29 +26,24 @@ public class Payment extends Audit implements Serializable{
     @Column
     private String id;
 
+    @ManyToOne
+    @JoinColumn(name = "payment_hd_id")
+    private PaymentHd paymentHd;
+
     @Column(length = 250)
     private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
 
     @Column
     private PaymentType paymentType;
 
-    @Column
-    @Temporal(TemporalType.DATE)
-    private Date paymentDate;
-
     @Column(length = 6)
     private String paymentMonth;
-    // MMyyyy
-
-    @ManyToOne
-    @JoinColumn(name = "outlet_id")
-    private Outlet outlet;
 
     @Column
-    private PaymentStatus paymentStatus;
+    private BigDecimal amount;
+
+    @ManyToOne
+    @JoinColumn(name = "reg_id")
+    private Registration registration;
 
 }

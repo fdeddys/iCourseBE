@@ -1,5 +1,6 @@
 package com.ddabadi.model;
 
+import com.ddabadi.model.auditor.Audit;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode
 @ToString
 @Table(name = "attendance_hd")
-public class AttendanceHd implements Serializable {
+public class AttendanceHd extends Audit implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -32,7 +33,11 @@ public class AttendanceHd implements Serializable {
 
     @Column
     @Temporal(TemporalType.DATE)
-    private Date attendaceDate;
+    private Date attendanceDate;
+
+    @Column
+    @Temporal(TemporalType.TIME)
+    private Date attendanceTime;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name ="outlet_id")

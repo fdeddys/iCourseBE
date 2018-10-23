@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface StudentRepository extends JpaRepository<Student, String> {
 
 
@@ -25,4 +27,9 @@ public interface StudentRepository extends JpaRepository<Student, String> {
                                @Param("outletId") String outletId,
                                Pageable pageable);
 
+    @Query(value = "select s from Student s  " +
+            " where ( true = true ) " +
+            " and  (s.id = :studentId )" +
+            " and  ((s.outlet.id = :#{#outletId} ) or (null = :#{#outletId})    ) ")
+    Optional<Student> findByIdLoadClasses(@Param("studentId") String studentId);
 }

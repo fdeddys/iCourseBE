@@ -2,7 +2,7 @@ package com.ddabadi.rest.trans.master;
 
 import com.ddabadi.model.GroupOutlet;
 import com.ddabadi.model.dto.OutletGroupDto;
-import com.ddabadi.service.impl.trans.master.OutletGroupService;
+import com.ddabadi.service.impl.master.OutletGroupService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 

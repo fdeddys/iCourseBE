@@ -23,7 +23,7 @@ public class Teacher extends Person implements Serializable {
     @Column
     private EntityStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "person")
     private Outlet outlet;
 

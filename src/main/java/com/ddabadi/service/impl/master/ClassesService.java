@@ -1,4 +1,4 @@
-package com.ddabadi.service.impl.trans.master;
+package com.ddabadi.service.impl.master;
 
 import com.ddabadi.model.Classes;
 import com.ddabadi.model.User;
@@ -36,7 +36,7 @@ public class ClassesService implements CustomService<ClassesDto> {
         newRec.setName(classesDto.getName());
         newRec.setMonthlyFee(classesDto.getMonthlyFee());
         newRec.setClassCode(classesDto.getClassCode());
-        newRec.setOutlet(user.getOutlet());
+        newRec.setOutlet(userService.getCurOutlet());
         newRec.setStatus(EntityStatus.ACTIVE);
         newRec.setUpdatedBy(user);
         newRec.setCreatedBy(user);
@@ -80,7 +80,7 @@ public class ClassesService implements CustomService<ClassesDto> {
         User user = userService.getCurUserAsObj();
         Sort sort = Sort.by("id");
         PageRequest pageRequest = PageRequest.of(page -1 , count, sort);
-        return repository.findByOutlet(user.getOutlet(), pageRequest);
+        return repository.findByOutlet(userService.getCurOutlet(), pageRequest);
     }
 
     @Transactional(readOnly = true)
@@ -92,7 +92,7 @@ public class ClassesService implements CustomService<ClassesDto> {
         filterDto.setName(filterDto.getName() == null ? "%" : "%" + filterDto.getName().trim() + "%");
         System.out.println("filter " + filterDto);
         Page<Classes> res = repository.findByFilter(filterDto,
-                user.getOutlet() == null? null : user.getOutlet().getId(),
+                userService.getCurOutlet() == null? null : userService.getCurOutlet().getId(),
                 pageRequest);
 
         return  res;
