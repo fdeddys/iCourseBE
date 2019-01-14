@@ -1,6 +1,10 @@
 package com.ddabadi.repository;
 
 import com.ddabadi.model.AttendanceHd;
+import com.ddabadi.model.dto.AttendanceHdDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,5 +21,13 @@ public interface AttendanceHdRepository extends JpaRepository<AttendanceHd, Stri
                                       @Param("roomId")String roomId,
                                       @Param("outletId")String outletId,
                                       @Param("attendanceDate")Date attendanceDate,
-                                      @Param("attendanceTime")Date attendanceTime);
+                                      @Param("attendanceTime")String attendanceTime);
+
+    @Query(value = "select a from AttendanceHd  a join a.teacher t join a.room r join a.outlet o " +
+            " where ( true = true ) " +
+            " and  (((a.attendanceDate) = (:#{#filter.attendanceDate }))   or (null = :#{#filter.attendanceDate }) ) " +
+            " and  ((a.outlet.id = :#{#outletId} )                 or (null = :#{#outletId})    ) ")
+    Page<AttendanceHd> findByFilter(@Param("filter") AttendanceHdDto filter,
+                                    @Param("outletId") String outletId,
+                                    Pageable pageable);
 }

@@ -520,6 +520,28 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
         roleMenuService.save(roleMenuPay);
 
 
+        Menu menuAttendance = new Menu();
+        menuAttendance.setName("attendance");
+        menuAttendance.setDescription("Attendance");
+        menuAttendance.setLink("attendance");
+        menuAttendance.setParentId(menuTrx.getId());
+        menuAttendance.setIcon("person");
+        menuAttendance.setStatus(1);
+        menuAttendance.setCreatedBy(userAdmin);
+        menuAttendance.setUpdatedBy(userAdmin);
+        menuAttendance = menuService.addnew(menuAttendance);
+
+        RoleMenuId roleMenuIdAttendance = new RoleMenuId();
+        roleMenuIdAttendance.setMenuId(menuAttendance.getId());
+        roleMenuIdAttendance.setRoleId(roleAdmin.getId());
+
+        RoleMenu roleMenuAttendance = new RoleMenu();
+        roleMenuAttendance.setStatus(EntityStatus.ACTIVE);
+        roleMenuAttendance.setRoleMenuId(roleMenuIdAttendance);
+        roleMenuAttendance.setCreatedBy(userAdmin);
+        roleMenuAttendance.setUpdatedBy(userAdmin);
+        roleMenuService.save(roleMenuAttendance);
+
         //  -----------------------------------------------------------------------------------------------------------
         Menu menuReport = new Menu();
         menuReport.setName("report");

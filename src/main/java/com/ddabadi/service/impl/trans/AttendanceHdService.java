@@ -14,7 +14,11 @@ import com.ddabadi.service.impl.master.RoomService;
 import com.ddabadi.service.impl.master.TeacherService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.text.ParseException;
@@ -53,7 +57,7 @@ public class AttendanceHdService implements CustomService<AttendanceHdDto> {
                     attendanceHdDto.getRoomId(),
                     attendanceHdDto.getOutletId(),
                     dateAttendace,
-                    timeAttendace);
+                    attendanceHdDto.getStrAttendanceTime());
             list.stream()
                     .filter(attendanceHd -> !attendanceHd.getId().equals(attendanceHdDto.getId()))
                     .collect(Collectors.toList());
@@ -108,7 +112,7 @@ public class AttendanceHdService implements CustomService<AttendanceHdDto> {
         AttendanceHd newRec = new AttendanceHd();
         newRec.setTeacher(teacherOpt.get());
         newRec.setAttendanceDate(dateAttendace);
-        newRec.setAttendanceTime(timeAttendace);
+        newRec.setAttendanceTime(attendanceHdDto.getStrAttendanceTime());
         newRec.setRoom(roomOptional.get());
         newRec.setOutlet(userService.getCurOutlet());
         newRec.setUpdatedBy(user);
@@ -167,7 +171,7 @@ public class AttendanceHdService implements CustomService<AttendanceHdDto> {
             AttendanceHd newRec = rec.get();
             newRec.setTeacher(teacherOpt.get());
             newRec.setAttendanceDate(dateAttendace);
-            newRec.setAttendanceTime(timeAttendace);
+            newRec.setAttendanceTime(attendanceHdDto.getStrAttendanceTime());
             newRec.setRoom(roomOptional.get());
             newRec.setOutlet(userService.getCurOutlet());
             newRec.setUpdatedBy(user);
@@ -190,5 +194,21 @@ public class AttendanceHdService implements CustomService<AttendanceHdDto> {
     public Optional<AttendanceHd> findById(String attendanceHdId) {
 
         return repository.findById(attendanceHdId);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<AttendanceHd> searchByFilter(AttendanceHdDto filterDto, int page, int total) {
+        User user = userService.getCurUserAsObj();
+        Sort sort = new Sort(Sort.Direction.DESC,"attendanceDate");
+        PageRequest pageRequest = PageRequest.of (page -1, total, sort);
+
+//        filterDto.set(filterDto.getOfficer() == null ? "%" : "%" + filterDto.getOfficer().trim() + "%");
+        System.out.println("filter " + filterDto);
+        Page<AttendanceHd> res = repository.findByFilter(filterDto,
+                userService.getCurOutlet() == null? null : userService.getCurOutlet().getId(),
+                pageRequest);
+
+        return  res;
+
     }
 }

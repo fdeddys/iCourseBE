@@ -36,8 +36,8 @@ public class AttendanceHd extends Audit implements Serializable {
     private Date attendanceDate;
 
     @Column
-    @Temporal(TemporalType.TIME)
-    private Date attendanceTime;
+//    @Temporal(TemporalType.TIME)
+    private String attendanceTime;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name ="outlet_id")
